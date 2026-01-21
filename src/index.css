@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply font-body text-charcoal bg-white antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-heading;
+    }
+
+    code,
+    pre {
+        @apply font-mono;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-6 py-3 bg-vibrant-green text-white font-semibold rounded-lg hover:bg-vibrant-green-dark transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-6 py-3 bg-deep-blue text-white font-semibold rounded-lg hover:bg-deep-blue-light transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center px-6 py-3 border-2 border-deep-blue text-deep-blue font-semibold rounded-lg hover:bg-deep-blue hover:text-white transition-all duration-300;
+    }
+
+    .card {
+        @apply bg-white rounded-xl shadow-card p-6 transition-all duration-300 hover:shadow-card-hover;
+    }
+
+    .section-title {
+        @apply text-h2 text-deep-blue mb-4;
+    }
+
+    .section-subtitle {
+        @apply text-lg text-charcoal-light mb-8;
+    }
+
+    .container-custom {
+        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    }
+
+    .gradient-text {
+        @apply bg-gradient-to-r from-deep-blue via-vibrant-green to-deep-blue bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-light-gray;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-deep-blue rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-deep-blue-light;
+}
