@@ -7,28 +7,25 @@ export default {
     theme: {
         extend: {
             colors: {
-                // TRE-Pod Brand Colors
-                'deep-blue': '#1A4D7A',
-                'deep-blue-light': '#2563A8',
-                'deep-blue-dark': '#0F3451',
-                'vibrant-green': '#2ECC71',
-                'vibrant-green-light': '#58D68D',
-                'vibrant-green-dark': '#27AE60',
-                'warm-orange': '#E67E22',
-                'warm-orange-light': '#F39C12',
-                'charcoal': '#2C3E50',
-                'charcoal-light': '#34495E',
-                'light-gray': '#ECF0F1',
-                'medium-gray': '#BDC3C7',
-                // Scientific visualization colors
-                'atp-gold': '#F1C40F',
-                'stasis-violet': '#8E44AD',
-                'ribosome-cyan': '#00BCD4',
+                // TRE-Pod Brand Colors - New Palette
+                'primary': '#059467',
+                'primary-light': '#06b07a',
+                'primary-dark': '#047a55',
+                'primary-text': '#e8fcf3',
+                'secondary': '#525252',
+                'secondary-light': '#6b6b6b',
+                'secondary-dark': '#3d3d3d',
+                'secondary-text': '#fafafa',
+                'accent': '#edfdf9',
+                'accent-dark': '#d4f7ef',
+                'accent-text': '#14b8a5',
             },
             fontFamily: {
-                'heading': ['Inter', 'Montserrat', 'system-ui', 'sans-serif'],
-                'body': ['Open Sans', 'Roboto', 'system-ui', 'sans-serif'],
-                'mono': ['Fira Code', 'Consolas', 'monospace'],
+                'sans': ['Work Sans', 'sans-serif'],
+                'serif': ['Lora', 'serif'],
+                'mono': ['Inconsolata', 'monospace'],
+                'heading': ['Work Sans', 'sans-serif'],
+                'body': ['Work Sans', 'sans-serif'],
             },
             fontSize: {
                 'h1': ['2.25rem', { lineHeight: '2.5rem', fontWeight: '700' }],
@@ -56,12 +53,12 @@ export default {
                 },
             },
             backgroundImage: {
-                'hero-gradient': 'linear-gradient(135deg, #1A4D7A 0%, #0F3451 50%, #8E44AD 100%)',
-                'card-gradient': 'linear-gradient(180deg, rgba(26,77,122,0.05) 0%, rgba(46,204,113,0.05) 100%)',
+                'hero-gradient': 'linear-gradient(135deg, #059467 0%, #047a55 50%, #14b8a5 100%)',
+                'card-gradient': 'linear-gradient(180deg, rgba(5,148,103,0.05) 0%, rgba(20,184,165,0.05) 100%)',
             },
             boxShadow: {
-                'card': '0 4px 6px -1px rgba(26, 77, 122, 0.1), 0 2px 4px -1px rgba(26, 77, 122, 0.06)',
-                'card-hover': '0 20px 25px -5px rgba(26, 77, 122, 0.1), 0 10px 10px -5px rgba(26, 77, 122, 0.04)',
+                'card': '0 4px 6px -1px rgba(5, 148, 103, 0.1), 0 2px 4px -1px rgba(5, 148, 103, 0.06)',
+                'card-hover': '0 20px 25px -5px rgba(5, 148, 103, 0.1), 0 10px 10px -5px rgba(5, 148, 103, 0.04)',
             },
         },
     },

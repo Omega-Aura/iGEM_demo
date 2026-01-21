@@ -131,11 +131,11 @@ const Safety = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card border-l-4 border-vibrant-green mb-8"
+                            className="card border-l-4 border-accent-text mb-8"
                         >
-                            <p className="text-lg text-charcoal leading-relaxed">
-                                All TRE-Pod research is conducted under <strong className="text-deep-blue">Biosafety Level 1 (BSL-1)</strong> conditions
-                                using the well-characterized, non-pathogenic <strong className="text-deep-blue">Escherichia coli K-12 MG1655</strong> strain.
+                            <p className="text-lg text-secondary leading-relaxed">
+                                All TRE-Pod research is conducted under <strong className="text-primary">Biosafety Level 1 (BSL-1)</strong> conditions
+                                using the well-characterized, non-pathogenic <strong className="text-primary">Escherichia coli K-12 MG1655</strong> strain.
                                 Our team has completed comprehensive biosafety training and follows strict protocols for handling, containment, and disposal.
                             </p>
                         </motion.div>
@@ -155,9 +155,9 @@ const Safety = () => {
                                     transition={{ delay: index * 0.1 }}
                                     className="card text-center"
                                 >
-                                    <item.icon className="w-8 h-8 text-deep-blue mx-auto mb-2" />
-                                    <p className="text-sm text-charcoal-light">{item.label}</p>
-                                    <p className="text-xl font-heading font-bold text-charcoal">{item.value}</p>
+                                    <item.icon className="w-8 h-8 text-primary mx-auto mb-2" />
+                                    <p className="text-sm text-secondary-light">{item.label}</p>
+                                    <p className="text-xl font-heading font-bold text-secondary">{item.value}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -166,7 +166,7 @@ const Safety = () => {
             </section>
 
             {/* Safety Measures */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Protocols"
@@ -185,17 +185,17 @@ const Safety = () => {
                                 className="card"
                             >
                                 <div className="flex items-center mb-4">
-                                    <div className="w-12 h-12 bg-deep-blue/10 rounded-xl flex items-center justify-center mr-4">
-                                        <measure.icon className="w-6 h-6 text-deep-blue" />
+                                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4">
+                                        <measure.icon className="w-6 h-6 text-primary" />
                                     </div>
-                                    <h3 className="text-xl font-heading font-semibold text-charcoal">
+                                    <h3 className="text-xl font-heading font-semibold text-secondary">
                                         {measure.title}
                                     </h3>
                                 </div>
                                 <ul className="space-y-2">
                                     {measure.items.map((item, i) => (
-                                        <li key={i} className="flex items-start text-charcoal-light">
-                                            <CheckCircle2 className="w-4 h-4 text-vibrant-green mr-2 mt-1 flex-shrink-0" />
+                                        <li key={i} className="flex items-start text-secondary-light">
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
                                             {item}
                                         </li>
                                     ))}
@@ -227,18 +227,18 @@ const Safety = () => {
                                     className="card flex flex-col md:flex-row md:items-center gap-4"
                                 >
                                     <div className="md:w-1/4">
-                                        <span className="font-heading font-semibold text-charcoal">{item.risk}</span>
+                                        <span className="font-heading font-semibold text-secondary">{item.risk}</span>
                                     </div>
                                     <div className="md:w-1/6">
                                         <span className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${item.level === 'Minimal'
-                                                ? 'bg-vibrant-green/10 text-vibrant-green'
-                                                : 'bg-warm-orange/10 text-warm-orange'
+                                            ? 'bg-accent-text/10 text-accent-text'
+                                            : 'bg-secondary/10 text-secondary'
                                             }`}>
                                             {item.level} Risk
                                         </span>
                                     </div>
                                     <div className="md:flex-grow">
-                                        <p className="text-charcoal-light text-sm">{item.mitigation}</p>
+                                        <p className="text-secondary-light text-sm">{item.mitigation}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -248,7 +248,7 @@ const Safety = () => {
             </section>
 
             {/* Ethical Considerations */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Ethics"
@@ -264,10 +264,10 @@ const Safety = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="card border-l-4 border-stasis-violet"
+                                className="card border-l-4 border-primary-light"
                             >
-                                <h4 className="font-heading font-semibold text-charcoal mb-2">{item.title}</h4>
-                                <p className="text-charcoal-light text-sm">{item.description}</p>
+                                <h4 className="font-heading font-semibold text-secondary mb-2">{item.title}</h4>
+                                <p className="text-secondary-light text-sm">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -300,10 +300,10 @@ const Safety = () => {
                                     transition={{ delay: index * 0.1 }}
                                     className="card flex items-start"
                                 >
-                                    <item.icon className="w-6 h-6 text-deep-blue mr-4 flex-shrink-0" />
+                                    <item.icon className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
                                     <div>
-                                        <h4 className="font-semibold text-charcoal mb-1">{item.title}</h4>
-                                        <p className="text-sm text-charcoal-light">{item.desc}</p>
+                                        <h4 className="font-semibold text-secondary mb-1">{item.title}</h4>
+                                        <p className="text-sm text-secondary-light">{item.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}

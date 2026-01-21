@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import {
     Beaker,
     Cpu,
@@ -15,12 +16,22 @@ import {
     CheckCircle2
 } from 'lucide-react'
 import Hero from '../components/Hero'
+import ParallaxHeader from '../components/ParallaxHeader'
 import SectionHeader from '../components/SectionHeader'
 import StatsCard from '../components/StatsCard'
 import FeatureCard from '../components/FeatureCard'
 import DataTable from '../components/DataTable'
 
 const Home = () => {
+    const containerRef = useRef(null)
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    })
+
+    const y1 = useTransform(scrollYProgress, [0, 1], [0, -100])
+    const y2 = useTransform(scrollYProgress, [0, 1], [0, -200])
+    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
     const stats = [
         {
             icon: TrendingDown,
@@ -95,23 +106,59 @@ const Home = () => {
     ]
 
     return (
-        <>
-            {/* Hero Section */}
-            <Hero
-                title={
-                    <>
-                        Translational Rhythm Engineering<br />
-                        for <span className="text-vibrant-green">Programmed Dormancy</span>
-                    </>
-                }
-                description="Engineering reversible cellular dormancy through codon-specific ribosomal stalling. A synthetic biology approach to preserve living cells without cryogenic infrastructure."
-                primaryAction={{ label: 'Explore the Science', href: '/description' }}
-                secondaryAction={{ label: 'View Results', href: '/results' }}
-            />
+        <div ref={containerRef}>
+            {/* Parallax Hero Section with Image Sequence */}
+            <ParallaxHeader>
+                <motion.div
+                    className="container-custom text-center px-6"
+                    style={{ y: y1, opacity }}
+                >
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                    >
+                        <h1 className="text-5xl md:text-7xl font-heading font-bold text-white mb-6">
+                            Translational Rhythm Engineering<br />
+                            for <span className="text-accent-text">Programmed Dormancy</span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8">
+                            Engineering reversible cellular dormancy through codon-specific ribosomal stalling.
+                            A synthetic biology approach to preserve living cells without cryogenic infrastructure.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link
+                                to="/description"
+                                className="btn-primary inline-flex items-center gap-2"
+                            >
+                                Explore the Science
+                                <ArrowRight className="w-5 h-5" />
+                            </Link>
+                            <Link
+                                to="/results"
+                                className="btn-secondary inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border-white/30"
+                            >
+                                View Results
+                                <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </div>
+                    </motion.div>
+                </motion.div>
+            </ParallaxHeader>
 
             {/* Problem Statement */}
-            <section className="py-20 bg-light-gray">
-                <div className="container-custom">
+            <section className="py-20 bg-accent relative overflow-hidden">
+                {/* Parallax background elements */}
+                <motion.div
+                    style={{ y: y1 }}
+                    className="absolute top-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"
+                />
+                <motion.div
+                    style={{ y: y2 }}
+                    className="absolute bottom-0 right-0 w-96 h-96 bg-accent-text/5 rounded-full blur-3xl"
+                />
+
+                <div className="container-custom relative z-10">
                     <SectionHeader
                         tag="The Challenge"
                         title="The Dormancy Problem in Biotechnology"
@@ -123,20 +170,21 @@ const Home = () => {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
                             className="space-y-6"
                         >
-                            <div className="card border-l-4 border-warm-orange">
-                                <h3 className="text-xl font-heading font-semibold text-charcoal mb-3">
+                            <div className="card border-l-4 border-accent-text">
+                                <h3 className="text-xl font-heading font-semibold text-secondary mb-3">
                                     Infrastructure Costs
                                 </h3>
                                 <p className="text-charcoal-light">
-                                    Cryogenic infrastructure costs <span className="font-semibold text-warm-orange">$50,000-500,000</span> per
+                                    Cryogenic infrastructure costs <span className="font-semibold text-accent-text">$50,000-500,000</span> per
                                     facility, requiring continuous power and liquid nitrogen supply.
                                 </p>
                             </div>
 
-                            <div className="card border-l-4 border-warm-orange">
-                                <h3 className="text-xl font-heading font-semibold text-charcoal mb-3">
+                            <div className="card border-l-4 border-accent-text">
+                                <h3 className="text-xl font-heading font-semibold text-secondary mb-3">
                                     Accessibility Gap
                                 </h3>
                                 <p className="text-charcoal-light">
@@ -145,12 +193,12 @@ const Home = () => {
                                 </p>
                             </div>
 
-                            <div className="card border-l-4 border-warm-orange">
-                                <h3 className="text-xl font-heading font-semibold text-charcoal mb-3">
+                            <div className="card border-l-4 border-accent-text">
+                                <h3 className="text-xl font-heading font-semibold text-secondary mb-3">
                                     Cell Damage
                                 </h3>
                                 <p className="text-charcoal-light">
-                                    Cryoinjury causes <span className="font-semibold text-warm-orange">30-70% viability loss</span> through
+                                    Cryoinjury causes <span className="font-semibold text-accent-text">30-70% viability loss</span> through
                                     ROS damage, apoptosis, and ice-crystal formation.
                                 </p>
                             </div>
@@ -160,6 +208,7 @@ const Home = () => {
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
                         >
                             <DataTable
                                 headers={comparisonData.headers}
@@ -167,7 +216,7 @@ const Home = () => {
                                 highlightColumn={4}
                                 variant="striped"
                             />
-                            <p className="text-sm text-charcoal-light mt-4 text-center">
+                            <p className="text-sm text-secondary-light mt-4 text-center">
                                 Comparison of preservation methods vs. TRE-Pod targets
                             </p>
                         </motion.div>
@@ -176,8 +225,18 @@ const Home = () => {
             </section>
 
             {/* Solution Overview */}
-            <section className="py-20">
-                <div className="container-custom">
+            <section className="py-20 relative overflow-hidden">
+                {/* Parallax decorative elements */}
+                <motion.div
+                    style={{ y: y1 }}
+                    className="absolute top-20 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+                />
+                <motion.div
+                    style={{ y: y2 }}
+                    className="absolute bottom-20 left-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl"
+                />
+
+                <div className="container-custom relative z-10">
                     <SectionHeader
                         tag="Our Solution"
                         title="TRE-Pod: Engineered Cellular Pause"
@@ -196,10 +255,27 @@ const Home = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-gradient-to-br from-deep-blue to-deep-blue-dark rounded-2xl p-8 md:p-12 text-white mb-16"
+                        transition={{ duration: 0.8 }}
+                        className="bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-8 md:p-12 text-white mb-16 relative overflow-hidden"
                     >
-                        <h3 className="text-2xl font-heading font-bold mb-6">How It Works</h3>
-                        <div className="grid md:grid-cols-5 gap-4">
+                        {/* Animated background pattern */}
+                        <motion.div
+                            animate={{
+                                rotate: [0, 360],
+                            }}
+                            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+                            className="absolute -top-40 -right-40 w-80 h-80 border border-white/10 rounded-full"
+                        />
+                        <motion.div
+                            animate={{
+                                rotate: [360, 0],
+                            }}
+                            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                            className="absolute -bottom-40 -left-40 w-96 h-96 border border-white/10 rounded-full"
+                        />
+
+                        <h3 className="text-2xl font-heading font-bold mb-6 relative z-10">How It Works</h3>
+                        <div className="grid md:grid-cols-5 gap-4 relative z-10">
                             {[
                                 { step: '01', title: 'Engineer', desc: 'Insert rare codons in metabolic genes (gapA, pfkA)' },
                                 { step: '02', title: 'Deplete', desc: 'Control tRNA availability to induce stalling' },
@@ -207,13 +283,24 @@ const Home = () => {
                                 { step: '04', title: 'Dormancy', desc: 'ATP drops 60-80%, growth arrests' },
                                 { step: '05', title: 'Recover', desc: 'Restore tRNA levels, cells resume in 30-120 min' },
                             ].map((item, index) => (
-                                <div key={index} className="text-center">
-                                    <div className="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center">
-                                        <span className="text-vibrant-green font-bold">{item.step}</span>
-                                    </div>
+                                <motion.div
+                                    key={index}
+                                    className="text-center"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                >
+                                    <motion.div
+                                        className="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center"
+                                        whileHover={{ scale: 1.1, rotate: 360 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <span className="text-accent-text font-bold">{item.step}</span>
+                                    </motion.div>
                                     <h4 className="font-semibold mb-1">{item.title}</h4>
                                     <p className="text-sm text-white/70">{item.desc}</p>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>
@@ -221,7 +308,7 @@ const Home = () => {
                     {/* Innovation List */}
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div>
-                            <h3 className="text-2xl font-heading font-semibold text-charcoal mb-6">
+                            <h3 className="text-2xl font-heading font-semibold text-secondary mb-6">
                                 Why TRE-Pod is Novel
                             </h3>
                             <ul className="space-y-4">
@@ -234,8 +321,8 @@ const Home = () => {
                                         transition={{ delay: index * 0.1 }}
                                         className="flex items-start"
                                     >
-                                        <CheckCircle2 className="w-5 h-5 text-vibrant-green mr-3 flex-shrink-0 mt-0.5" />
-                                        <span className="text-charcoal-light">{item}</span>
+                                        <CheckCircle2 className="w-5 h-5 text-accent-text mr-3 flex-shrink-0 mt-0.5" />
+                                        <span className="text-secondary-light">{item}</span>
                                     </motion.li>
                                 ))}
                             </ul>
@@ -250,8 +337,19 @@ const Home = () => {
             </section>
 
             {/* Features Grid */}
-            <section className="py-20 bg-light-gray">
-                <div className="container-custom">
+            <section className="py-20 bg-accent relative overflow-hidden">
+                {/* Parallax grid pattern */}
+                <motion.div
+                    className="absolute inset-0 opacity-5"
+                    style={{
+                        y: y1,
+                        backgroundImage: `linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+                                          linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)`,
+                        backgroundSize: '60px 60px'
+                    }}
+                />
+
+                <div className="container-custom relative z-10">
                     <SectionHeader
                         tag="Explore"
                         title="Project Components"
@@ -267,8 +365,28 @@ const Home = () => {
             </section>
 
             {/* Impact Section */}
-            <section className="py-20">
-                <div className="container-custom">
+            <section className="py-20 relative overflow-hidden">
+                {/* Parallax animated orbs */}
+                <motion.div
+                    style={{ y: y1 }}
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.1, 0.2, 0.1]
+                    }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-0 left-1/4 w-96 h-96 bg-accent-text/10 rounded-full blur-3xl"
+                />
+                <motion.div
+                    style={{ y: y2 }}
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.1, 0.15, 0.1]
+                    }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+                />
+
+                <div className="container-custom relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <SectionHeader
@@ -292,12 +410,12 @@ const Home = () => {
                                         transition={{ delay: index * 0.1 }}
                                         className="flex items-start space-x-4"
                                     >
-                                        <div className="w-10 h-10 bg-vibrant-green/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                                            <item.icon className="w-5 h-5 text-vibrant-green" />
+                                        <div className="w-10 h-10 bg-accent-text/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <item.icon className="w-5 h-5 text-accent-text" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-charcoal">{item.title}</h4>
-                                            <p className="text-charcoal-light text-sm">{item.desc}</p>
+                                            <h4 className="font-semibold text-secondary">{item.title}</h4>
+                                            <p className="text-secondary-light text-sm">{item.desc}</p>
                                         </div>
                                     </motion.div>
                                 ))}
@@ -308,12 +426,27 @@ const Home = () => {
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="bg-gradient-to-br from-vibrant-green to-vibrant-green-dark rounded-2xl p-8 text-white"
+                            transition={{ duration: 0.8 }}
+                            className="bg-gradient-to-br from-accent-text to-primary rounded-2xl p-8 text-white relative overflow-hidden"
                         >
-                            <h3 className="text-3xl font-heading font-bold mb-2">$100B+</h3>
-                            <p className="text-white/80 mb-6">Global biobanking and cell therapy market annually</p>
+                            {/* Animated shine effect */}
+                            <motion.div
+                                animate={{
+                                    x: ['-100%', '200%'],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    repeatDelay: 2,
+                                    ease: "easeInOut"
+                                }}
+                                className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
+                            />
 
-                            <div className="space-y-4">
+                            <h3 className="text-3xl font-heading font-bold mb-2 relative z-10">$100B+</h3>
+                            <p className="text-white/80 mb-6 relative z-10">Global biobanking and cell therapy market annually</p>
+
+                            <div className="space-y-4 relative z-10">
                                 <div className="bg-white/10 rounded-lg p-4">
                                     <div className="text-2xl font-bold">Scalable</div>
                                     <p className="text-white/70 text-sm">Platform technology applicable to microbes, cell lines, and biopharmaceuticals</p>
@@ -329,12 +462,47 @@ const Home = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-deep-blue">
-                <div className="container-custom text-center">
+            <section className="py-20 bg-primary relative overflow-hidden">
+                {/* Animated background particles */}
+                <motion.div
+                    animate={{
+                        y: [0, -30, 0],
+                        x: [0, 20, 0],
+                    }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-10 left-10 w-2 h-2 bg-accent-text rounded-full"
+                />
+                <motion.div
+                    animate={{
+                        y: [0, 30, 0],
+                        x: [0, -20, 0],
+                    }}
+                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-20 right-20 w-3 h-3 bg-accent rounded-full"
+                />
+                <motion.div
+                    animate={{
+                        y: [0, -40, 0],
+                        x: [0, -30, 0],
+                    }}
+                    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute bottom-20 left-1/3 w-2 h-2 bg-primary-light rounded-full"
+                />
+                <motion.div
+                    animate={{
+                        y: [0, 40, 0],
+                        x: [0, 30, 0],
+                    }}
+                    transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute bottom-10 right-1/4 w-3 h-3 bg-secondary rounded-full"
+                />
+
+                <div className="container-custom text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
                             Ready to Explore the Science?
@@ -348,14 +516,14 @@ const Home = () => {
                                 Project Description
                                 <ArrowRight className="w-4 h-4 ml-2" />
                             </Link>
-                            <Link to="/team" className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
+                            <Link to="/team" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
                                 Meet the Team
                             </Link>
                         </div>
                     </motion.div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

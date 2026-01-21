@@ -5,8 +5,8 @@ const PageHeader = ({ title, subtitle, breadcrumb }) => {
         <section className="relative bg-hero-gradient pt-32 pb-16 overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-vibrant-green/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-stasis-violet/10 rounded-full blur-3xl" />
+                <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-accent-text/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl" />
             </div>
 
             <div className="container-custom relative z-10">

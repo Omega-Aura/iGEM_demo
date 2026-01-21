@@ -23,19 +23,21 @@ const Footer = () => {
     }
 
     return (
-        <footer className="bg-charcoal text-white">
+        <footer className="bg-secondary text-white">
             {/* Main Footer */}
             <div className="container-custom py-12 lg:py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
                     {/* Brand */}
                     <div className="lg:col-span-2">
                         <Link to="/" className="flex items-center space-x-2 mb-4">
-                            <div className="w-10 h-10 bg-gradient-to-br from-deep-blue-light to-vibrant-green rounded-lg flex items-center justify-center">
-                                <span className="text-white font-bold text-lg">T</span>
-                            </div>
+                            <img
+                                src="/logo.png"
+                                alt="TRE-Pod Logo"
+                                className="w-10 h-10 object-contain"
+                            />
                             <span className="font-heading font-bold text-xl">TRE-Pod</span>
                         </Link>
-                        <p className="text-medium-gray mb-6 max-w-sm">
+                        <p className="text-secondary-text mb-6 max-w-sm">
                             Translational Rhythm Engineering for Programmed Dormancy.
                             Engineering reversible cellular dormancy through codon-specific
                             ribosomal stalling.
@@ -45,7 +47,7 @@ const Footer = () => {
                                 href="https://github.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 bg-charcoal-light rounded-lg flex items-center justify-center hover:bg-deep-blue transition-colors"
+                                className="w-10 h-10 bg-secondary-light rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                             >
                                 <Github className="w-5 h-5" />
                             </a>
@@ -53,13 +55,13 @@ const Footer = () => {
                                 href="https://twitter.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 bg-charcoal-light rounded-lg flex items-center justify-center hover:bg-deep-blue transition-colors"
+                                className="w-10 h-10 bg-secondary-light rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                             >
                                 <Twitter className="w-5 h-5" />
                             </a>
                             <a
                                 href="mailto:team@tre-pod.org"
-                                className="w-10 h-10 bg-charcoal-light rounded-lg flex items-center justify-center hover:bg-deep-blue transition-colors"
+                                className="w-10 h-10 bg-secondary-light rounded-lg flex items-center justify-center hover:bg-primary transition-colors"
                             >
                                 <Mail className="w-5 h-5" />
                             </a>
@@ -74,7 +76,7 @@ const Footer = () => {
                                 <li key={link.path}>
                                     <Link
                                         to={link.path}
-                                        className="text-medium-gray hover:text-vibrant-green transition-colors"
+                                        className="text-secondary-text hover:text-accent-text transition-colors"
                                     >
                                         {link.name}
                                     </Link>
@@ -91,7 +93,7 @@ const Footer = () => {
                                 <li key={link.path}>
                                     <Link
                                         to={link.path}
-                                        className="text-medium-gray hover:text-vibrant-green transition-colors"
+                                        className="text-secondary-text hover:text-accent-text transition-colors"
                                     >
                                         {link.name}
                                     </Link>
@@ -108,7 +110,7 @@ const Footer = () => {
                                 <li key={link.path}>
                                     <Link
                                         to={link.path}
-                                        className="text-medium-gray hover:text-vibrant-green transition-colors"
+                                        className="text-secondary-text hover:text-accent-text transition-colors"
                                     >
                                         {link.name}
                                     </Link>
@@ -120,22 +122,22 @@ const Footer = () => {
             </div>
 
             {/* iGEM Attribution */}
-            <div className="border-t border-charcoal-light">
+            <div className="border-t border-secondary-light">
                 <div className="container-custom py-6">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div className="flex items-center space-x-2 text-medium-gray text-sm">
+                        <div className="flex items-center space-x-2 text-secondary-text text-sm">
                             <span>© {currentYear} TRE-Pod Team. Built for</span>
                             <a
                                 href="https://igem.org"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center space-x-1 text-vibrant-green hover:text-vibrant-green-light transition-colors"
+                                className="inline-flex items-center space-x-1 text-accent-text hover:text-accent transition-colors"
                             >
                                 <span>iGEM 2026</span>
                                 <ExternalLink className="w-3 h-3" />
                             </a>
                         </div>
-                        <div className="text-medium-gray text-sm">
+                        <div className="text-secondary-text text-sm">
                             <Link to="/safety" className="hover:text-white transition-colors">
                                 Safety
                             </Link>

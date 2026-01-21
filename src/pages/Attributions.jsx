@@ -99,20 +99,20 @@ const Attributions = () => {
                                 className="card"
                             >
                                 <div className="flex items-center mb-6">
-                                    <div className="w-12 h-12 bg-deep-blue/10 rounded-xl flex items-center justify-center mr-4">
-                                        <section.icon className="w-6 h-6 text-deep-blue" />
+                                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mr-4">
+                                        <section.icon className="w-6 h-6 text-primary" />
                                     </div>
-                                    <h3 className="text-xl font-heading font-semibold text-charcoal">
+                                    <h3 className="text-xl font-heading font-semibold text-secondary">
                                         {section.category}
                                     </h3>
                                 </div>
 
                                 <div className="space-y-4">
                                     {section.items.map((item, i) => (
-                                        <div key={i} className="pl-4 border-l-2 border-vibrant-green">
-                                            <h4 className="font-semibold text-charcoal">{item.name}</h4>
-                                            <p className="text-deep-blue text-sm font-medium">{item.role}</p>
-                                            <p className="text-charcoal-light text-sm">{item.contribution}</p>
+                                        <div key={i} className="pl-4 border-l-2 border-accent-text">
+                                            <h4 className="font-semibold text-secondary">{item.name}</h4>
+                                            <p className="text-primary text-sm font-medium">{item.role}</p>
+                                            <p className="text-secondary-light text-sm">{item.contribution}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -123,14 +123,14 @@ const Attributions = () => {
             </section>
 
             {/* Thank You */}
-            <section className="py-16 bg-deep-blue">
+            <section className="py-16 bg-primary">
                 <div className="container-custom text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <Heart className="w-12 h-12 text-vibrant-green mx-auto mb-4" />
+                        <Heart className="w-12 h-12 text-accent-text mx-auto mb-4" />
                         <h2 className="text-3xl font-heading font-bold text-white mb-4">
                             Thank You
                         </h2>

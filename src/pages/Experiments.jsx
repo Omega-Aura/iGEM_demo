@@ -162,7 +162,7 @@ const Experiments = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card bg-gradient-to-br from-deep-blue to-deep-blue-dark text-white p-8 mb-8"
+                            className="card bg-gradient-to-br from-primary to-primary-dark text-white p-8 mb-8"
                         >
                             <div className="flex items-center mb-4">
                                 <FlaskConical className="w-8 h-8 mr-3" />
@@ -188,7 +188,7 @@ const Experiments = () => {
             </section>
 
             {/* Experiments */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Protocols"
@@ -205,36 +205,36 @@ const Experiments = () => {
                                 className="card"
                             >
                                 <div className="flex items-start gap-4 mb-6">
-                                    <div className="w-12 h-12 bg-deep-blue/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                                        <exp.icon className="w-6 h-6 text-deep-blue" />
+                                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <exp.icon className="w-6 h-6 text-primary" />
                                     </div>
                                     <div>
-                                        <span className="text-sm text-deep-blue font-semibold">Experiment {exp.id}</span>
-                                        <h3 className="text-xl font-heading font-bold text-charcoal">{exp.title}</h3>
-                                        <p className="text-charcoal-light">{exp.goal}</p>
+                                        <span className="text-sm text-primary font-semibold">Experiment {exp.id}</span>
+                                        <h3 className="text-xl font-heading font-bold text-secondary">{exp.title}</h3>
+                                        <p className="text-secondary-light">{exp.goal}</p>
                                     </div>
                                 </div>
 
                                 <div className="grid md:grid-cols-3 gap-6">
                                     {exp.methods.map((method, i) => (
-                                        <div key={i} className="bg-light-gray rounded-lg p-4">
-                                            <h4 className="font-heading font-semibold text-charcoal mb-3 text-sm">
+                                        <div key={i} className="bg-accent rounded-lg p-4">
+                                            <h4 className="font-heading font-semibold text-secondary mb-3 text-sm">
                                                 {method.name}
                                             </h4>
                                             <ul className="space-y-2 mb-4">
                                                 {method.steps.map((step, j) => (
-                                                    <li key={j} className="flex items-start text-xs text-charcoal-light">
-                                                        <span className="w-4 h-4 bg-deep-blue/10 text-deep-blue rounded-full flex items-center justify-center mr-2 flex-shrink-0 text-xs">
+                                                    <li key={j} className="flex items-start text-xs text-secondary-light">
+                                                        <span className="w-4 h-4 bg-primary/10 text-primary rounded-full flex items-center justify-center mr-2 flex-shrink-0 text-xs">
                                                             {j + 1}
                                                         </span>
                                                         {step}
                                                     </li>
                                                 ))}
                                             </ul>
-                                            <div className="bg-vibrant-green/10 rounded p-2">
+                                            <div className="bg-accent-text/10 rounded p-2">
                                                 <p className="text-xs">
-                                                    <span className="font-semibold text-vibrant-green">Expected: </span>
-                                                    <span className="text-charcoal-light">{method.expectedResult}</span>
+                                                    <span className="font-semibold text-accent-text">Expected: </span>
+                                                    <span className="text-secondary-light">{method.expectedResult}</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -267,7 +267,7 @@ const Experiments = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-16 bg-deep-blue">
+            <section className="py-16 bg-primary">
                 <div className="container-custom text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

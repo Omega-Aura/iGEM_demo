@@ -20,7 +20,7 @@ const Team = () => {
     const teamMembers = [
         {
             name: 'Aritra Das Kanungo',
-            role: 'Project Lead',
+            role: 'TBD',
             image: null, // Placeholder
             bio: 'Leading the TRE-Pod project with expertise in synthetic biology and translational control mechanisms. Responsible for overall project direction, experimental design, and integration of computational and wet lab approaches.',
             expertise: ['Synthetic Biology', 'Translational Control', 'Project Management'],
@@ -50,10 +50,10 @@ const Team = () => {
     ]
 
     const roles = [
-        { role: 'Wet Lab', count: 'TBD', color: 'deep-blue' },
-        { role: 'Dry Lab', count: 'TBD', color: 'vibrant-green' },
-        { role: 'Human Practices', count: 'TBD', color: 'warm-orange' },
-        { role: 'Wiki/Design', count: 'TBD', color: 'stasis-violet' }
+        { role: 'Wet Lab', count: 'TBD', color: 'primary' },
+        { role: 'Dry Lab', count: 'TBD', color: 'accent-text' },
+        { role: 'Human Practices', count: 'TBD', color: 'secondary' },
+        { role: 'Wiki/Design', count: 'TBD', color: 'primary-light' }
     ]
 
     return (
@@ -87,7 +87,7 @@ const Team = () => {
                                 <div className={`text-2xl font-heading font-bold text-${item.color} mb-1`}>
                                     {item.count}
                                 </div>
-                                <div className="text-sm text-charcoal-light">{item.role}</div>
+                                <div className="text-sm text-secondary-light">{item.role}</div>
                             </motion.div>
                         ))}
                     </div>
@@ -95,7 +95,7 @@ const Team = () => {
             </section>
 
             {/* Team Members */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Members"
@@ -114,7 +114,7 @@ const Team = () => {
                                 <div className="flex flex-col md:flex-row gap-6">
                                     {/* Photo */}
                                     <div className="md:w-48 flex-shrink-0">
-                                        <div className="w-48 h-48 mx-auto md:mx-0 bg-gradient-to-br from-deep-blue to-deep-blue-dark rounded-2xl flex items-center justify-center">
+                                        <div className="w-48 h-48 mx-auto md:mx-0 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center">
                                             {member.image ? (
                                                 <img src={member.image} alt={member.name} className="w-full h-full object-cover rounded-2xl" />
                                             ) : (
@@ -125,18 +125,18 @@ const Team = () => {
 
                                     {/* Info */}
                                     <div className="flex-grow">
-                                        <h3 className="text-2xl font-heading font-bold text-charcoal mb-1">
+                                        <h3 className="text-2xl font-heading font-bold text-secondary mb-1">
                                             {member.name}
                                         </h3>
-                                        <p className="text-deep-blue font-semibold mb-3">{member.role}</p>
-                                        <p className="text-charcoal-light mb-4 leading-relaxed">{member.bio}</p>
+                                        <p className="text-primary font-semibold mb-3">{member.role}</p>
+                                        <p className="text-secondary-light mb-4 leading-relaxed">{member.bio}</p>
 
                                         {/* Expertise Tags */}
                                         <div className="flex flex-wrap gap-2 mb-4">
                                             {member.expertise.map((skill, i) => (
                                                 <span
                                                     key={i}
-                                                    className="px-3 py-1 bg-deep-blue/10 text-deep-blue text-sm rounded-full"
+                                                    className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
                                                 >
                                                     {skill}
                                                 </span>
@@ -146,17 +146,17 @@ const Team = () => {
                                         {/* Social Links */}
                                         <div className="flex space-x-3">
                                             {member.social.email && (
-                                                <a href={`mailto:${member.social.email}`} className="w-10 h-10 bg-light-gray rounded-lg flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors">
+                                                <a href={`mailto:${member.social.email}`} className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                                                     <Mail className="w-5 h-5" />
                                                 </a>
                                             )}
                                             {member.social.linkedin && (
-                                                <a href={member.social.linkedin} className="w-10 h-10 bg-light-gray rounded-lg flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors">
+                                                <a href={member.social.linkedin} className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                                                     <Linkedin className="w-5 h-5" />
                                                 </a>
                                             )}
                                             {member.social.github && (
-                                                <a href={member.social.github} className="w-10 h-10 bg-light-gray rounded-lg flex items-center justify-center hover:bg-deep-blue hover:text-white transition-colors">
+                                                <a href={member.social.github} className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                                                     <Github className="w-5 h-5" />
                                                 </a>
                                             )}
@@ -171,13 +171,13 @@ const Team = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card border-2 border-dashed border-medium-gray text-center py-12"
+                            className="card border-2 border-dashed border-accent-dark text-center py-12"
                         >
-                            <User className="w-16 h-16 text-medium-gray mx-auto mb-4" />
-                            <h4 className="text-xl font-heading font-semibold text-charcoal-light mb-2">
+                            <User className="w-16 h-16 text-accent-dark mx-auto mb-4" />
+                            <h4 className="text-xl font-heading font-semibold text-secondary-light mb-2">
                                 Team Expanding
                             </h4>
-                            <p className="text-charcoal-light max-w-md mx-auto">
+                            <p className="text-secondary-light max-w-md mx-auto">
                                 Additional team members will be added as the project grows.
                                 Check back for updates on our growing team.
                             </p>
@@ -206,14 +206,14 @@ const Team = () => {
                                 className="card"
                             >
                                 <div className="flex items-start gap-4">
-                                    <div className="w-16 h-16 bg-gradient-to-br from-vibrant-green to-vibrant-green-dark rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <div className="w-16 h-16 bg-gradient-to-br from-accent-text to-primary rounded-xl flex items-center justify-center flex-shrink-0">
                                         <GraduationCap className="w-8 h-8 text-white" />
                                     </div>
                                     <div>
-                                        <h4 className="font-heading font-semibold text-charcoal">{advisor.name}</h4>
-                                        <p className="text-deep-blue text-sm font-medium">{advisor.role}</p>
-                                        <p className="text-charcoal-light text-xs mb-2">{advisor.affiliation}</p>
-                                        <p className="text-charcoal-light text-sm">{advisor.contribution}</p>
+                                        <h4 className="font-heading font-semibold text-secondary">{advisor.name}</h4>
+                                        <p className="text-primary text-sm font-medium">{advisor.role}</p>
+                                        <p className="text-secondary-light text-xs mb-2">{advisor.affiliation}</p>
+                                        <p className="text-secondary-light text-sm">{advisor.contribution}</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -223,14 +223,14 @@ const Team = () => {
             </section>
 
             {/* Acknowledgments */}
-            <section className="py-16 bg-deep-blue">
+            <section className="py-16 bg-primary">
                 <div className="container-custom text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <Award className="w-12 h-12 text-vibrant-green mx-auto mb-4" />
+                        <Award className="w-12 h-12 text-accent-text mx-auto mb-4" />
                         <h2 className="text-3xl font-heading font-bold text-white mb-4">
                             Acknowledgments
                         </h2>

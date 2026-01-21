@@ -24,13 +24,13 @@ const Notebook = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="card border-2 border-dashed border-warm-orange"
+                            className="card border-2 border-dashed border-secondary"
                         >
-                            <BookOpen className="w-16 h-16 text-warm-orange mx-auto mb-4" />
-                            <h2 className="text-2xl font-heading font-bold text-charcoal mb-4">
+                            <BookOpen className="w-16 h-16 text-secondary mx-auto mb-4" />
+                            <h2 className="text-2xl font-heading font-bold text-secondary mb-4">
                                 Notebook Coming Soon
                             </h2>
-                            <p className="text-charcoal-light mb-6">
+                            <p className="text-secondary-light mb-6">
                                 Daily experimental records will be documented here as wet lab work progresses.
                                 The notebook will include:
                             </p>
@@ -42,8 +42,8 @@ const Notebook = () => {
                                     'Troubleshooting notes',
                                     'Timeline of project milestones'
                                 ].map((item, index) => (
-                                    <li key={index} className="flex items-center text-charcoal-light">
-                                        <Calendar className="w-4 h-4 mr-2 text-vibrant-green" />
+                                    <li key={index} className="flex items-center text-secondary-light">
+                                        <Calendar className="w-4 h-4 mr-2 text-accent-text" />
                                         {item}
                                     </li>
                                 ))}

@@ -154,7 +154,7 @@ const Software = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card bg-gradient-to-br from-deep-blue to-deep-blue-dark text-white p-8 mb-8"
+                            className="card bg-gradient-to-br from-primary to-primary-dark text-white p-8 mb-8"
                         >
                             <div className="flex items-center mb-4">
                                 <Code2 className="w-8 h-8 mr-3" />
@@ -171,7 +171,7 @@ const Software = () => {
             </section>
 
             {/* Main Tools */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Applications"
@@ -190,26 +190,26 @@ const Software = () => {
                                 <div className="flex flex-col lg:flex-row gap-8">
                                     {/* Header */}
                                     <div className="lg:w-80 flex-shrink-0">
-                                        <div className="w-16 h-16 bg-gradient-to-br from-vibrant-green to-vibrant-green-dark rounded-2xl flex items-center justify-center mb-4">
+                                        <div className="w-16 h-16 bg-gradient-to-br from-accent-text to-primary rounded-2xl flex items-center justify-center mb-4">
                                             <tool.icon className="w-8 h-8 text-white" />
                                         </div>
-                                        <h3 className="text-2xl font-heading font-bold text-charcoal mb-2">
+                                        <h3 className="text-2xl font-heading font-bold text-secondary mb-2">
                                             {tool.name}
                                         </h3>
-                                        <p className="text-deep-blue font-medium mb-3">{tool.tagline}</p>
-                                        <p className="text-charcoal-light text-sm mb-4">{tool.description}</p>
+                                        <p className="text-primary font-medium mb-3">{tool.tagline}</p>
+                                        <p className="text-secondary-light text-sm mb-4">{tool.description}</p>
 
                                         {/* Status Badge */}
-                                        <div className="inline-block px-3 py-1 bg-warm-orange/10 text-warm-orange text-sm font-semibold rounded-full mb-4">
+                                        <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary text-sm font-semibold rounded-full mb-4">
                                             {tool.status}
                                         </div>
 
                                         {/* Tech Stack */}
                                         <div>
-                                            <p className="text-xs text-charcoal-light uppercase font-semibold mb-2">Tech Stack</p>
+                                            <p className="text-xs text-secondary-light uppercase font-semibold mb-2">Tech Stack</p>
                                             <div className="flex flex-wrap gap-2">
                                                 {tool.techStack.map((tech, i) => (
-                                                    <span key={i} className="px-2 py-1 bg-deep-blue/10 text-deep-blue text-xs rounded">
+                                                    <span key={i} className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">
                                                         {tech}
                                                     </span>
                                                 ))}
@@ -221,13 +221,13 @@ const Software = () => {
                                     <div className="flex-grow grid md:grid-cols-2 gap-6">
                                         {tool.features.map((feature, i) => (
                                             <div key={i}>
-                                                <h4 className="font-heading font-semibold text-charcoal mb-3">
+                                                <h4 className="font-heading font-semibold text-secondary mb-3">
                                                     {feature.title}
                                                 </h4>
                                                 <ul className="space-y-2">
                                                     {feature.items.map((item, j) => (
-                                                        <li key={j} className="flex items-start text-sm text-charcoal-light">
-                                                            <ArrowRight className="w-4 h-4 mr-2 text-vibrant-green flex-shrink-0 mt-0.5" />
+                                                        <li key={j} className="flex items-start text-sm text-secondary-light">
+                                                            <ArrowRight className="w-4 h-4 mr-2 text-accent-text flex-shrink-0 mt-0.5" />
                                                             {item}
                                                         </li>
                                                     ))}
@@ -254,10 +254,10 @@ const Software = () => {
                     <div className="max-w-5xl mx-auto">
                         <div className="grid md:grid-cols-4 gap-6">
                             {[
-                                { title: 'Input Layer', items: mlArchitecture.input, color: 'deep-blue' },
-                                { title: 'Hidden Layers', items: mlArchitecture.hidden, color: 'stasis-violet' },
-                                { title: 'Output Layer', items: mlArchitecture.output, color: 'vibrant-green' },
-                                { title: 'Training', items: mlArchitecture.training, color: 'warm-orange' }
+                                { title: 'Input Layer', items: mlArchitecture.input, color: 'primary' },
+                                { title: 'Hidden Layers', items: mlArchitecture.hidden, color: 'primary-light' },
+                                { title: 'Output Layer', items: mlArchitecture.output, color: 'accent-text' },
+                                { title: 'Training', items: mlArchitecture.training, color: 'secondary' }
                             ].map((layer, index) => (
                                 <motion.div
                                     key={index}
@@ -272,7 +272,7 @@ const Software = () => {
                                     </h4>
                                     <ul className="space-y-2">
                                         {layer.items.map((item, i) => (
-                                            <li key={i} className="text-sm text-charcoal-light">
+                                            <li key={i} className="text-sm text-secondary-light">
                                                 • {item}
                                             </li>
                                         ))}
@@ -285,19 +285,19 @@ const Software = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="mt-8 card bg-vibrant-green/5 border border-vibrant-green/20 text-center"
+                            className="mt-8 card bg-accent-text/5 border border-accent-text/20 text-center"
                         >
-                            <Cpu className="w-10 h-10 text-vibrant-green mx-auto mb-2" />
-                            <p className="text-lg font-semibold text-charcoal">Expected Performance</p>
-                            <p className="text-3xl font-heading font-bold text-vibrant-green">R² {'>'} 0.85</p>
-                            <p className="text-sm text-charcoal-light">on held-out test set</p>
+                            <Cpu className="w-10 h-10 text-accent-text mx-auto mb-2" />
+                            <p className="text-lg font-semibold text-secondary">Expected Performance</p>
+                            <p className="text-3xl font-heading font-bold text-accent-text">R² {'>'} 0.85</p>
+                            <p className="text-sm text-secondary-light">on held-out test set</p>
                         </motion.div>
                     </div>
                 </div>
             </section>
 
             {/* Code Repositories */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Open Source"
@@ -313,21 +313,21 @@ const Software = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="card hover:border-deep-blue border-2 border-transparent transition-colors"
+                                className="card hover:border-primary border-2 border-transparent transition-colors"
                             >
                                 <div className="flex items-start justify-between mb-3">
                                     <div className="flex items-center">
-                                        <Github className="w-5 h-5 text-charcoal mr-2" />
-                                        <h4 className="font-heading font-semibold text-charcoal">{repo.name}</h4>
+                                        <Github className="w-5 h-5 text-secondary mr-2" />
+                                        <h4 className="font-heading font-semibold text-secondary">{repo.name}</h4>
                                     </div>
-                                    <ExternalLink className="w-4 h-4 text-charcoal-light" />
+                                    <ExternalLink className="w-4 h-4 text-secondary-light" />
                                 </div>
-                                <p className="text-charcoal-light text-sm mb-3">{repo.description}</p>
+                                <p className="text-secondary-light text-sm mb-3">{repo.description}</p>
                                 <div className="flex gap-2">
-                                    <span className="px-2 py-1 bg-deep-blue/10 text-deep-blue text-xs rounded">
+                                    <span className="px-2 py-1 bg-primary/10 text-primary text-xs rounded">
                                         {repo.language}
                                     </span>
-                                    <span className="px-2 py-1 bg-vibrant-green/10 text-vibrant-green text-xs rounded">
+                                    <span className="px-2 py-1 bg-accent-text/10 text-accent-text text-xs rounded">
                                         {repo.frameworks}
                                     </span>
                                 </div>
@@ -338,14 +338,14 @@ const Software = () => {
             </section>
 
             {/* Documentation */}
-            <section className="py-16 bg-deep-blue">
+            <section className="py-16 bg-primary">
                 <div className="container-custom text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <Database className="w-12 h-12 text-vibrant-green mx-auto mb-4" />
+                        <Database className="w-12 h-12 text-accent-text mx-auto mb-4" />
                         <h2 className="text-3xl font-heading font-bold text-white mb-4">
                             Comprehensive Documentation
                         </h2>
@@ -358,7 +358,7 @@ const Software = () => {
                                 View Modeling Details
                                 <ArrowRight className="w-4 h-4 ml-2" />
                             </a>
-                            <a href="/experiments" className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
+                            <a href="/experiments" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
                                 Experimental Protocols
                             </a>
                         </div>

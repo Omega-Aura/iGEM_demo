@@ -24,13 +24,13 @@ const Results = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="card border-2 border-dashed border-warm-orange"
+                            className="card border-2 border-dashed border-secondary"
                         >
-                            <Clock className="w-16 h-16 text-warm-orange mx-auto mb-4" />
-                            <h2 className="text-2xl font-heading font-bold text-charcoal mb-4">
+                            <Clock className="w-16 h-16 text-secondary mx-auto mb-4" />
+                            <h2 className="text-2xl font-heading font-bold text-secondary mb-4">
                                 Results Coming Soon
                             </h2>
-                            <p className="text-charcoal-light mb-6">
+                            <p className="text-secondary-light mb-6">
                                 Our experimental validation is currently in progress. This page will be updated
                                 with comprehensive results including:
                             </p>
@@ -42,8 +42,8 @@ const Results = () => {
                                     'Computational model validation',
                                     'Statistical analysis and comparisons'
                                 ].map((item, index) => (
-                                    <li key={index} className="flex items-center text-charcoal-light">
-                                        <BarChart3 className="w-4 h-4 mr-2 text-vibrant-green" />
+                                    <li key={index} className="flex items-center text-secondary-light">
+                                        <BarChart3 className="w-4 h-4 mr-2 text-accent-text" />
                                         {item}
                                     </li>
                                 ))}

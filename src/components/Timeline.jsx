@@ -19,24 +19,24 @@ const TimelineItem = ({
         >
             {/* Vertical line */}
             {!isLast && (
-                <div className="absolute left-[11px] top-10 bottom-0 w-0.5 bg-gradient-to-b from-deep-blue to-deep-blue/20" />
+                <div className="absolute left-[11px] top-10 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/20" />
             )}
 
             {/* Step indicator */}
-            <div className="absolute left-0 top-0 w-6 h-6 bg-deep-blue rounded-full flex items-center justify-center text-white text-xs font-bold">
+            <div className="absolute left-0 top-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center text-white text-xs font-bold">
                 {step}
             </div>
 
             <div className="card ml-4">
-                <h4 className="text-lg font-heading font-semibold text-charcoal mb-2">
+                <h4 className="text-lg font-heading font-semibold text-secondary mb-2">
                     {title}
                 </h4>
-                <p className="text-charcoal-light mb-3">{description}</p>
+                <p className="text-secondary-light mb-3">{description}</p>
                 {details && (
                     <ul className="space-y-1">
                         {details.map((detail, index) => (
-                            <li key={index} className="flex items-start text-sm text-charcoal-light">
-                                <ArrowRight className="w-4 h-4 mr-2 text-vibrant-green flex-shrink-0 mt-0.5" />
+                            <li key={index} className="flex items-start text-sm text-secondary-light">
+                                <ArrowRight className="w-4 h-4 mr-2 text-accent-text flex-shrink-0 mt-0.5" />
                                 {detail}
                             </li>
                         ))}

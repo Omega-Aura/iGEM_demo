@@ -7,7 +7,13 @@ import {
     BookOpen,
     Microscope,
     Cpu,
-    CheckCircle2
+    CheckCircle2,
+    DollarSign,
+    Zap,
+    Globe,
+    Snowflake,
+    Clock,
+    FlaskConical
 } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import SectionHeader from '../components/SectionHeader'
@@ -139,15 +145,15 @@ const Description = () => {
                             viewport={{ once: true }}
                             className="prose prose-lg max-w-none"
                         >
-                            <div className="card border-l-4 border-deep-blue mb-8">
-                                <p className="text-lg text-charcoal leading-relaxed mb-4">
-                                    <strong className="text-deep-blue">TRE-Pod (Translational Rhythm Engineering for Programmed Dormancy)</strong> exploits
+                            <div className="card border-l-4 border-primary mb-8">
+                                <p className="text-lg text-secondary leading-relaxed mb-4">
+                                    <strong className="text-primary">TRE-Pod (Translational Rhythm Engineering for Programmed Dormancy)</strong> exploits
                                     recent discoveries in codon-specific ribosomal stalling to engineer reversible cellular dormancy.
                                     By systematically inserting rare codons (particularly valine codons) into metabolic genes, we
                                     induce programmed translation stalling that reduces ATP synthesis and metabolic rate, enabling
                                     cells to enter a stable, reversible dormant state at room temperature.
                                 </p>
-                                <p className="text-charcoal-light">
+                                <p className="text-secondary-light">
                                     This project directly addresses the challenge of <em>Reversible Cellular Dormancy Control</em>:
                                     developing biological strategies to enable safe, reversible control of cellular metabolism
                                     for storage and biomedical applications.
@@ -156,43 +162,43 @@ const Description = () => {
 
                             {/* Key Outcomes */}
                             <div className="grid md:grid-cols-2 gap-6 mb-8">
-                                <div className="card bg-gradient-to-br from-deep-blue/5 to-transparent">
-                                    <h4 className="font-heading font-semibold text-deep-blue mb-3 flex items-center">
+                                <div className="card bg-gradient-to-br from-primary/5 to-transparent">
+                                    <h4 className="font-heading font-semibold text-primary mb-3 flex items-center">
                                         <Target className="w-5 h-5 mr-2" />
                                         MVP Outcomes
                                     </h4>
-                                    <ul className="space-y-2 text-charcoal-light">
+                                    <ul className="space-y-2 text-secondary-light">
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-vibrant-green mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
                                             60-80% ATP reduction
                                         </li>
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-vibrant-green mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
                                             Growth arrest achieved
                                         </li>
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-vibrant-green mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
                                             {'>'}50% CFU retention after 14 days RT storage
                                         </li>
                                     </ul>
                                 </div>
 
-                                <div className="card bg-gradient-to-br from-vibrant-green/5 to-transparent">
-                                    <h4 className="font-heading font-semibold text-vibrant-green mb-3 flex items-center">
+                                <div className="card bg-gradient-to-br from-accent-text/5 to-transparent">
+                                    <h4 className="font-heading font-semibold text-accent-text mb-3 flex items-center">
                                         <Lightbulb className="w-5 h-5 mr-2" />
                                         Full Project Outcomes
                                     </h4>
-                                    <ul className="space-y-2 text-charcoal-light">
+                                    <ul className="space-y-2 text-secondary-light">
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-vibrant-green mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
                                             Inducible reversible exit (30-120 min)
                                         </li>
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-vibrant-green mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
                                             Predictive ML model (R² {'>'} 0.85)
                                         </li>
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-vibrant-green mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
                                             {'>'}70% CFU retention after 28 days
                                         </li>
                                     </ul>
@@ -204,7 +210,7 @@ const Description = () => {
             </section>
 
             {/* Problem Statement */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="The Challenge"
@@ -215,32 +221,32 @@ const Description = () => {
                     <div className="grid lg:grid-cols-3 gap-6 mb-12">
                         {[
                             {
-                                icon: '💰',
+                                icon: DollarSign,
                                 title: 'Expense',
                                 desc: 'Cryogenic infrastructure costs $50,000-500,000 per facility with continuous operational costs.'
                             },
                             {
-                                icon: '⚡',
+                                icon: Zap,
                                 title: 'Energy Dependence',
                                 desc: 'Continuous power and liquid nitrogen supply required—single point of failure risks sample loss.'
                             },
                             {
-                                icon: '🌍',
+                                icon: Globe,
                                 title: 'Accessibility',
                                 desc: 'Unavailable in low-resource settings, rural areas, and developing nations—limiting global biotech.'
                             },
                             {
-                                icon: '❄️',
+                                icon: Snowflake,
                                 title: 'Cell Damage',
                                 desc: 'Cryoinjury causes 30-70% viability loss through ROS damage, apoptosis, and ice-crystal formation.'
                             },
                             {
-                                icon: '⏱️',
+                                icon: Clock,
                                 title: 'Heterogeneity',
                                 desc: 'Natural dormancy is slow (hours) and asynchronous across cell populations—unpredictable outcomes.'
                             },
                             {
-                                icon: '🔬',
+                                icon: FlaskConical,
                                 title: 'Limited Control',
                                 desc: 'Existing genetic approaches (spore formation, RpoS) are slow, irreversible, or species-limited.'
                             }
@@ -251,11 +257,13 @@ const Description = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="card"
+                                className="bg-accent/50 rounded-2xl p-6 border border-primary/10"
                             >
-                                <div className="text-3xl mb-3">{item.icon}</div>
-                                <h3 className="font-heading font-semibold text-charcoal mb-2">{item.title}</h3>
-                                <p className="text-charcoal-light text-sm">{item.desc}</p>
+                                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center mb-4 shadow-sm">
+                                    <item.icon className="w-5 h-5 text-primary" />
+                                </div>
+                                <h3 className="font-heading font-semibold text-secondary mb-2">{item.title}</h3>
+                                <p className="text-secondary-light text-sm">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -264,7 +272,7 @@ const Description = () => {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        className="bg-white border-l-4 border-stasis-violet p-6 rounded-r-xl italic text-charcoal-light max-w-4xl mx-auto"
+                        className="bg-white border-l-4 border-primary-light p-6 rounded-r-xl italic text-secondary-light max-w-4xl mx-auto"
                     >
                         <p className="mb-4">
                             "Reversible Cellular Dormancy Control: Long-term preservation of living cells remains challenging,
@@ -273,7 +281,7 @@ const Description = () => {
                             New biological strategies are needed to enable safe, reversible control of cellular metabolism
                             for storage and biomedical applications."
                         </p>
-                        <cite className="text-deep-blue font-semibold not-italic">— iGEM 2026 Challenge Statement</cite>
+                        <cite className="text-primary font-semibold not-italic">— iGEM 2026 Challenge Statement</cite>
                     </motion.blockquote>
                 </div>
             </section>
@@ -292,7 +300,7 @@ const Description = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card bg-gradient-to-br from-deep-blue to-deep-blue-dark text-white p-8"
+                            className="card bg-gradient-to-br from-primary to-primary-dark text-white p-8"
                         >
                             <h3 className="text-xl font-heading font-bold mb-4 flex items-center">
                                 <Dna className="w-6 h-6 mr-2" />
@@ -344,11 +352,11 @@ const Description = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="card border-t-4 border-vibrant-green"
+                                className="card border-t-4 border-accent-text"
                             >
-                                <item.icon className="w-8 h-8 text-deep-blue mb-4" />
-                                <h4 className="font-heading font-semibold text-charcoal mb-2">{item.title}</h4>
-                                <p className="text-charcoal-light text-sm">{item.desc}</p>
+                                <item.icon className="w-8 h-8 text-primary mb-4" />
+                                <h4 className="font-heading font-semibold text-secondary mb-2">{item.title}</h4>
+                                <p className="text-secondary-light text-sm">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -356,7 +364,7 @@ const Description = () => {
             </section>
 
             {/* Scientific Foundation */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Literature"
@@ -375,12 +383,12 @@ const Description = () => {
                                 className="card"
                             >
                                 <div className="flex items-start justify-between mb-3">
-                                    <h4 className="font-heading font-semibold text-deep-blue">{paper.title}</h4>
-                                    <span className="text-xs bg-deep-blue/10 text-deep-blue px-2 py-1 rounded-full">
+                                    <h4 className="font-heading font-semibold text-primary">{paper.title}</h4>
+                                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
                                         {paper.journal}
                                     </span>
                                 </div>
-                                <p className="text-charcoal-light text-sm leading-relaxed">{paper.finding}</p>
+                                <p className="text-secondary-light text-sm leading-relaxed">{paper.finding}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -414,7 +422,7 @@ const Description = () => {
                                     rows={targetGenes.rows}
                                     variant="striped"
                                 />
-                                <p className="text-sm text-charcoal-light mt-4">
+                                <p className="text-sm text-secondary-light mt-4">
                                     Design approach: Engineer 3-5 metabolic genes with coordinated codon patterns
                                     to achieve ~80% ATP reduction without triggering cell death.
                                 </p>
@@ -426,30 +434,30 @@ const Description = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
-                                className="card bg-gradient-to-br from-stasis-violet/10 to-transparent border border-stasis-violet/20"
+                                className="card bg-gradient-to-br from-primary-light/10 to-transparent border border-primary-light/20"
                             >
-                                <h4 className="font-heading font-semibold text-stasis-violet mb-4">
+                                <h4 className="font-heading font-semibold text-primary-light mb-4">
                                     Expected Dormancy Profile
                                 </h4>
                                 <div className="grid grid-cols-2 gap-4 text-sm">
                                     <div>
-                                        <span className="text-charcoal-light">ATP levels:</span>
-                                        <div className="font-semibold text-charcoal">0.5-1.5 mM</div>
-                                        <div className="text-xs text-charcoal-light">(vs. 5-10 mM growth phase)</div>
+                                        <span className="text-secondary-light">ATP levels:</span>
+                                        <div className="font-semibold text-secondary">0.5-1.5 mM</div>
+                                        <div className="text-xs text-secondary-light">(vs. 5-10 mM growth phase)</div>
                                     </div>
                                     <div>
-                                        <span className="text-charcoal-light">Protein synthesis:</span>
-                                        <div className="font-semibold text-charcoal">{'<'}5% of normal</div>
+                                        <span className="text-secondary-light">Protein synthesis:</span>
+                                        <div className="font-semibold text-secondary">{'<'}5% of normal</div>
                                     </div>
                                     <div>
-                                        <span className="text-charcoal-light">Growth rate:</span>
-                                        <div className="font-semibold text-charcoal">0 h⁻¹</div>
-                                        <div className="text-xs text-charcoal-light">(no division)</div>
+                                        <span className="text-secondary-light">Growth rate:</span>
+                                        <div className="font-semibold text-secondary">0 h⁻¹</div>
+                                        <div className="text-xs text-secondary-light">(no division)</div>
                                     </div>
                                     <div>
-                                        <span className="text-charcoal-light">Stability:</span>
-                                        <div className="font-semibold text-charcoal">Weeks/months</div>
-                                        <div className="text-xs text-charcoal-light">at room temperature</div>
+                                        <span className="text-secondary-light">Stability:</span>
+                                        <div className="font-semibold text-secondary">Weeks/months</div>
+                                        <div className="text-xs text-secondary-light">at room temperature</div>
                                     </div>
                                 </div>
                             </motion.div>
@@ -459,7 +467,7 @@ const Description = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-16 bg-deep-blue">
+            <section className="py-16 bg-primary">
                 <div className="container-custom text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

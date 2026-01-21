@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,7 +10,8 @@
     }
 
     body {
-        @apply font-body text-charcoal bg-white antialiased;
+        @apply font-body bg-white antialiased;
+        color: #525252;
     }
 
     h1,
@@ -28,15 +31,15 @@
 
 @layer components {
     .btn-primary {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-vibrant-green text-white font-semibold rounded-lg hover:bg-vibrant-green-dark transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+        @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-text font-semibold rounded-lg hover:bg-primary-dark transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
     }
 
     .btn-secondary {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-deep-blue text-white font-semibold rounded-lg hover:bg-deep-blue-light transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+        @apply inline-flex items-center justify-center px-6 py-3 bg-secondary text-secondary-text font-semibold rounded-lg hover:bg-secondary-light transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
     }
 
     .btn-outline {
-        @apply inline-flex items-center justify-center px-6 py-3 border-2 border-deep-blue text-deep-blue font-semibold rounded-lg hover:bg-deep-blue hover:text-white transition-all duration-300;
+        @apply inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-primary-text transition-all duration-300;
     }
 
     .card {
@@ -44,11 +47,11 @@
     }
 
     .section-title {
-        @apply text-h2 text-deep-blue mb-4;
+        @apply text-h2 text-primary mb-4;
     }
 
     .section-subtitle {
-        @apply text-lg text-charcoal-light mb-8;
+        @apply text-lg text-secondary-light mb-8;
     }
 
     .container-custom {
@@ -56,7 +59,7 @@
     }
 
     .gradient-text {
-        @apply bg-gradient-to-r from-deep-blue via-vibrant-green to-deep-blue bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient;
+        @apply bg-gradient-to-r from-primary via-accent-text to-primary bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient;
     }
 }
 
@@ -72,13 +75,13 @@
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-light-gray;
+    @apply bg-accent;
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-deep-blue rounded-full;
+    @apply bg-primary rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    @apply bg-deep-blue-light;
+    @apply bg-primary-light;
 }

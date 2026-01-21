@@ -36,7 +36,7 @@ const Engineering = () => {
         {
             phase: 'Design',
             icon: Wrench,
-            color: 'deep-blue',
+            color: 'primary',
             title: 'Codon Pattern Engineering',
             description: 'Design rare codon insertions based on literature and computational predictions.',
             activities: [
@@ -55,7 +55,7 @@ const Engineering = () => {
         {
             phase: 'Build',
             icon: FlaskConical,
-            color: 'vibrant-green',
+            color: 'accent-text',
             title: 'Construct Assembly',
             description: 'Assemble engineered constructs using standard molecular biology techniques.',
             activities: [
@@ -74,7 +74,7 @@ const Engineering = () => {
         {
             phase: 'Test',
             icon: TestTube2,
-            color: 'warm-orange',
+            color: 'secondary',
             title: 'Experimental Validation',
             description: 'Comprehensive testing of dormancy induction, maintenance, and recovery.',
             activities: [
@@ -93,7 +93,7 @@ const Engineering = () => {
         {
             phase: 'Learn',
             icon: GraduationCap,
-            color: 'stasis-violet',
+            color: 'primary-light',
             title: 'Iterate & Optimize',
             description: 'Analyze results, refine models, and improve design parameters.',
             activities: [
@@ -169,7 +169,7 @@ const Engineering = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card bg-gradient-to-br from-deep-blue to-deep-blue-dark text-white p-8 mb-8"
+                            className="card bg-gradient-to-br from-primary to-primary-dark text-white p-8 mb-8"
                         >
                             <div className="flex items-center mb-4">
                                 <Repeat className="w-8 h-8 mr-3" />
@@ -186,7 +186,7 @@ const Engineering = () => {
             </section>
 
             {/* DBTL Phases */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Methodology"
@@ -213,10 +213,10 @@ const Engineering = () => {
                                         <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold bg-${cycle.color}/10 text-${cycle.color} mb-2`}>
                                             {cycle.phase}
                                         </div>
-                                        <h3 className="text-xl font-heading font-semibold text-charcoal">
+                                        <h3 className="text-xl font-heading font-semibold text-secondary">
                                             {cycle.title}
                                         </h3>
-                                        <p className="text-charcoal-light text-sm mt-2">
+                                        <p className="text-secondary-light text-sm mt-2">
                                             {cycle.description}
                                         </p>
                                     </div>
@@ -224,28 +224,28 @@ const Engineering = () => {
                                     {/* Activities & Outcomes */}
                                     <div className="flex-grow grid md:grid-cols-2 gap-6">
                                         <div>
-                                            <h4 className="font-semibold text-charcoal mb-3 flex items-center">
-                                                <Target className="w-4 h-4 mr-2 text-deep-blue" />
+                                            <h4 className="font-semibold text-secondary mb-3 flex items-center">
+                                                <Target className="w-4 h-4 mr-2 text-primary" />
                                                 Activities
                                             </h4>
                                             <ul className="space-y-2">
                                                 {cycle.activities.map((activity, i) => (
-                                                    <li key={i} className="flex items-start text-sm text-charcoal-light">
-                                                        <span className="w-1.5 h-1.5 bg-deep-blue rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                                                    <li key={i} className="flex items-start text-sm text-secondary-light">
+                                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 mt-1.5 flex-shrink-0" />
                                                         {activity}
                                                     </li>
                                                 ))}
                                             </ul>
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-charcoal mb-3 flex items-center">
-                                                <CheckCircle2 className="w-4 h-4 mr-2 text-vibrant-green" />
+                                            <h4 className="font-semibold text-secondary mb-3 flex items-center">
+                                                <CheckCircle2 className="w-4 h-4 mr-2 text-accent-text" />
                                                 Expected Outcomes
                                             </h4>
                                             <ul className="space-y-2">
                                                 {cycle.outcomes.map((outcome, i) => (
-                                                    <li key={i} className="flex items-start text-sm text-charcoal-light">
-                                                        <CheckCircle2 className="w-4 h-4 mr-2 text-vibrant-green flex-shrink-0" />
+                                                    <li key={i} className="flex items-start text-sm text-secondary-light">
+                                                        <CheckCircle2 className="w-4 h-4 mr-2 text-accent-text flex-shrink-0" />
                                                         {outcome}
                                                     </li>
                                                 ))}
@@ -276,24 +276,24 @@ const Engineering = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="card border-t-4 border-deep-blue"
+                                className="card border-t-4 border-primary"
                             >
                                 <div className="flex items-center justify-between mb-4">
-                                    <span className="text-3xl font-heading font-bold text-deep-blue">
+                                    <span className="text-3xl font-heading font-bold text-primary">
                                         {iter.iteration}
                                     </span>
-                                    <span className="text-xs bg-warm-orange/10 text-warm-orange px-2 py-1 rounded-full uppercase font-semibold">
+                                    <span className="text-xs bg-secondary/10 text-secondary px-2 py-1 rounded-full uppercase font-semibold">
                                         {iter.status}
                                     </span>
                                 </div>
-                                <h4 className="font-heading font-semibold text-charcoal mb-2">
+                                <h4 className="font-heading font-semibold text-secondary mb-2">
                                     {iter.focus}
                                 </h4>
-                                <div className="text-sm text-charcoal-light space-y-2">
+                                <div className="text-sm text-secondary-light space-y-2">
                                     <p><span className="font-medium">Target:</span> {iter.target}</p>
                                     <p><span className="font-medium">Goal:</span> {iter.goal}</p>
-                                    <div className="pt-2 border-t border-light-gray">
-                                        <p className="font-medium text-vibrant-green text-xs">Success Criteria:</p>
+                                    <div className="pt-2 border-t border-accent">
+                                        <p className="font-medium text-accent-text text-xs">Success Criteria:</p>
                                         <p className="text-xs">{iter.successCriteria}</p>
                                     </div>
                                 </div>
@@ -304,7 +304,7 @@ const Engineering = () => {
             </section>
 
             {/* Success Metrics */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Metrics"
@@ -344,9 +344,9 @@ const Engineering = () => {
                                 }
                             ].map((item, index) => (
                                 <div key={index} className="card text-center">
-                                    <item.icon className="w-8 h-8 text-vibrant-green mx-auto mb-3" />
-                                    <h4 className="font-heading font-semibold text-charcoal mb-2">{item.title}</h4>
-                                    <p className="text-sm text-charcoal-light">{item.desc}</p>
+                                    <item.icon className="w-8 h-8 text-accent-text mx-auto mb-3" />
+                                    <h4 className="font-heading font-semibold text-secondary mb-2">{item.title}</h4>
+                                    <p className="text-sm text-secondary-light">{item.desc}</p>
                                 </div>
                             ))}
                         </motion.div>
@@ -355,7 +355,7 @@ const Engineering = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-16 bg-deep-blue">
+            <section className="py-16 bg-primary">
                 <div className="container-custom text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

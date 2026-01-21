@@ -87,17 +87,17 @@ const HumanPractices = () => {
                                 transition={{ delay: index * 0.1 }}
                                 className="card"
                             >
-                                <div className="w-12 h-12 bg-deep-blue/10 rounded-xl flex items-center justify-center mb-4">
-                                    <practice.icon className="w-6 h-6 text-deep-blue" />
+                                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
+                                    <practice.icon className="w-6 h-6 text-primary" />
                                 </div>
-                                <h3 className="text-xl font-heading font-semibold text-charcoal mb-2">
+                                <h3 className="text-xl font-heading font-semibold text-secondary mb-2">
                                     {practice.title}
                                 </h3>
-                                <p className="text-charcoal-light mb-4">{practice.description}</p>
+                                <p className="text-secondary-light mb-4">{practice.description}</p>
                                 <ul className="space-y-2">
                                     {practice.activities.map((activity, i) => (
-                                        <li key={i} className="flex items-center text-sm text-charcoal-light">
-                                            <ArrowRight className="w-4 h-4 mr-2 text-vibrant-green" />
+                                        <li key={i} className="flex items-center text-sm text-secondary-light">
+                                            <ArrowRight className="w-4 h-4 mr-2 text-accent-text" />
                                             {activity}
                                         </li>
                                     ))}
@@ -109,7 +109,7 @@ const HumanPractices = () => {
             </section>
 
             {/* Impact */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Impact"
@@ -131,12 +131,12 @@ const HumanPractices = () => {
                                 transition={{ delay: index * 0.1 }}
                                 className="card text-center"
                             >
-                                <div className="w-16 h-16 bg-vibrant-green rounded-full flex items-center justify-center mx-auto mb-4">
+                                <div className="w-16 h-16 bg-accent-text rounded-full flex items-center justify-center mx-auto mb-4">
                                     <span className="text-white font-heading font-bold text-xl">{item.sdg}</span>
                                 </div>
-                                <h4 className="font-heading font-semibold text-charcoal mb-1">SDG {item.sdg}</h4>
-                                <p className="text-deep-blue font-medium mb-2">{item.title}</p>
-                                <p className="text-sm text-charcoal-light">{item.desc}</p>
+                                <h4 className="font-heading font-semibold text-secondary mb-1">SDG {item.sdg}</h4>
+                                <p className="text-primary font-medium mb-2">{item.title}</p>
+                                <p className="text-sm text-secondary-light">{item.desc}</p>
                             </motion.div>
                         ))}
                     </div>

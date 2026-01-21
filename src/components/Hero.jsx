@@ -21,7 +21,7 @@ const Hero = ({
                             opacity: [0.1, 0.2, 0.1]
                         }}
                         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-1/4 left-1/4 w-96 h-96 bg-vibrant-green/10 rounded-full blur-3xl"
+                        className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-text/10 rounded-full blur-3xl"
                     />
                     <motion.div
                         animate={{
@@ -29,7 +29,7 @@ const Hero = ({
                             opacity: [0.1, 0.15, 0.1]
                         }}
                         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-stasis-violet/10 rounded-full blur-3xl"
+                        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl"
                     />
                     <motion.div
                         animate={{
@@ -37,7 +37,7 @@ const Hero = ({
                             opacity: [0.05, 0.1, 0.05]
                         }}
                         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-atp-gold/5 rounded-full blur-3xl"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-3xl"
                     />
                 </div>
 
@@ -62,7 +62,7 @@ const Hero = ({
                             transition={{ duration: 0.6 }}
                             className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
                         >
-                            <span className="w-2 h-2 bg-vibrant-green rounded-full animate-pulse" />
+                            <span className="w-2 h-2 bg-accent-text rounded-full animate-pulse" />
                             <span className="text-white/90 text-sm font-medium">{subtitle}</span>
                         </motion.div>
                     )}
@@ -100,7 +100,7 @@ const Hero = ({
                                 </a>
                             )}
                             {secondaryAction && (
-                                <a href={secondaryAction.href} className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
+                                <a href={secondaryAction.href} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
                                     {secondaryAction.label}
                                 </a>
                             )}

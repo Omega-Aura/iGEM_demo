@@ -60,17 +60,17 @@ const Parts = () => {
                                     transition={{ delay: index * 0.1 }}
                                     className="card flex items-center gap-4"
                                 >
-                                    <div className="w-12 h-12 bg-deep-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <Dna className="w-6 h-6 text-deep-blue" />
+                                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <Dna className="w-6 h-6 text-primary" />
                                     </div>
                                     <div className="flex-grow">
                                         <div className="flex items-center gap-2 mb-1">
-                                            <h4 className="font-heading font-semibold text-charcoal">{part.name}</h4>
-                                            <span className="px-2 py-0.5 bg-vibrant-green/10 text-vibrant-green text-xs rounded-full">
+                                            <h4 className="font-heading font-semibold text-secondary">{part.name}</h4>
+                                            <span className="px-2 py-0.5 bg-accent-text/10 text-accent-text text-xs rounded-full">
                                                 {part.type}
                                             </span>
                                         </div>
-                                        <p className="text-sm text-charcoal-light">{part.description}</p>
+                                        <p className="text-sm text-secondary-light">{part.description}</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -80,13 +80,13 @@ const Parts = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card border-2 border-dashed border-warm-orange text-center"
+                            className="card border-2 border-dashed border-secondary text-center"
                         >
-                            <Clock className="w-12 h-12 text-warm-orange mx-auto mb-4" />
-                            <h3 className="text-xl font-heading font-semibold text-charcoal mb-2">
+                            <Clock className="w-12 h-12 text-secondary mx-auto mb-4" />
+                            <h3 className="text-xl font-heading font-semibold text-secondary mb-2">
                                 Sequences Coming Soon
                             </h3>
-                            <p className="text-charcoal-light mb-4">
+                            <p className="text-secondary-light mb-4">
                                 Full sequences and characterization data will be added as parts are constructed and validated.
                             </p>
                             <a href="/experiments" className="btn-secondary">

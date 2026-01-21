@@ -25,7 +25,7 @@ const Modeling = () => {
             title: 'Genome-Scale Metabolic Modeling',
             subtitle: 'Dynamic Flux Balance Analysis (dFBA)',
             icon: Database,
-            color: 'deep-blue',
+            color: 'primary',
             goal: 'Predict ATP balance and metabolic state as a function of codon-pattern changes',
             method: [
                 'E. coli genome-scale model (iJO1366, iAF1260)',
@@ -51,7 +51,7 @@ const Modeling = () => {
             title: 'Translational Dynamics',
             subtitle: 'Agent-Based Ribosome Simulation',
             icon: GitBranch,
-            color: 'vibrant-green',
+            color: 'accent-text',
             goal: 'Predict ribosomal dwell times and polysome breakdown',
             method: [
                 'Calculate elongation rate per codon',
@@ -77,7 +77,7 @@ const Modeling = () => {
             title: 'Systems Dynamics',
             subtitle: 'ODE-Based Oscillator Model',
             icon: LineChart,
-            color: 'stasis-violet',
+            color: 'primary-light',
             goal: 'Predict if translational rhythm drives metabolic oscillations → dormancy',
             method: [
                 'Reduced ODE model coupling translation and metabolism',
@@ -134,7 +134,7 @@ const Modeling = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card bg-gradient-to-br from-deep-blue to-deep-blue-dark text-white p-8 mb-8"
+                            className="card bg-gradient-to-br from-primary to-primary-dark text-white p-8 mb-8"
                         >
                             <div className="flex items-center mb-4">
                                 <Cpu className="w-8 h-8 mr-3" />
@@ -153,7 +153,7 @@ const Modeling = () => {
                                     { icon: LineChart, label: 'Systems', desc: 'ODE Model' }
                                 ].map((item, index) => (
                                     <div key={index} className="text-center">
-                                        <item.icon className="w-8 h-8 mx-auto mb-2 text-vibrant-green" />
+                                        <item.icon className="w-8 h-8 mx-auto mb-2 text-accent-text" />
                                         <div className="font-semibold">{item.label}</div>
                                         <div className="text-sm text-white/60">{item.desc}</div>
                                     </div>
@@ -165,7 +165,7 @@ const Modeling = () => {
             </section>
 
             {/* Three Scales */}
-            <section className="py-16 bg-light-gray">
+            <section className="py-16 bg-accent">
                 <div className="container-custom">
                     <SectionHeader
                         tag="Models"
@@ -187,20 +187,20 @@ const Modeling = () => {
                                         <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold bg-${model.color}/10 text-${model.color} mb-3`}>
                                             {model.scale}
                                         </div>
-                                        <h3 className="text-xl font-heading font-bold text-charcoal mb-1">
+                                        <h3 className="text-xl font-heading font-bold text-secondary mb-1">
                                             {model.title}
                                         </h3>
-                                        <p className="text-deep-blue font-medium text-sm mb-4">{model.subtitle}</p>
+                                        <p className="text-primary font-medium text-sm mb-4">{model.subtitle}</p>
 
-                                        <div className="bg-light-gray rounded-lg p-4 mb-4">
-                                            <p className="text-sm text-charcoal-light">
-                                                <span className="font-semibold text-charcoal">Goal:</span> {model.goal}
+                                        <div className="bg-accent rounded-lg p-4 mb-4">
+                                            <p className="text-sm text-secondary-light">
+                                                <span className="font-semibold text-secondary">Goal:</span> {model.goal}
                                             </p>
                                         </div>
 
                                         <div>
-                                            <p className="text-xs text-charcoal-light uppercase font-semibold mb-2">Tools</p>
-                                            <span className="px-3 py-1 bg-deep-blue/10 text-deep-blue text-sm rounded-full">
+                                            <p className="text-xs text-secondary-light uppercase font-semibold mb-2">Tools</p>
+                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">
                                                 {model.tools}
                                             </span>
                                         </div>
@@ -210,11 +210,11 @@ const Modeling = () => {
                                     <div className="flex-grow space-y-6">
                                         {/* Method */}
                                         <div>
-                                            <h4 className="font-heading font-semibold text-charcoal mb-2">Method</h4>
+                                            <h4 className="font-heading font-semibold text-secondary mb-2">Method</h4>
                                             <ul className="grid md:grid-cols-2 gap-2">
                                                 {model.method.map((item, i) => (
-                                                    <li key={i} className="flex items-start text-sm text-charcoal-light">
-                                                        <ArrowRight className="w-4 h-4 mr-2 text-vibrant-green flex-shrink-0 mt-0.5" />
+                                                    <li key={i} className="flex items-start text-sm text-secondary-light">
+                                                        <ArrowRight className="w-4 h-4 mr-2 text-accent-text flex-shrink-0 mt-0.5" />
                                                         {item}
                                                     </li>
                                                 ))}
@@ -223,8 +223,8 @@ const Modeling = () => {
 
                                         {/* Equations */}
                                         <div>
-                                            <h4 className="font-heading font-semibold text-charcoal mb-2">Key Equations</h4>
-                                            <div className="bg-charcoal rounded-lg p-4 font-mono text-sm text-vibrant-green space-y-1">
+                                            <h4 className="font-heading font-semibold text-secondary mb-2">Key Equations</h4>
+                                            <div className="bg-secondary rounded-lg p-4 font-mono text-sm text-accent-text space-y-1">
                                                 {model.equations.map((eq, i) => (
                                                     <div key={i}>{eq}</div>
                                                 ))}
@@ -232,20 +232,20 @@ const Modeling = () => {
                                         </div>
 
                                         {/* Novel Contribution */}
-                                        <div className="bg-vibrant-green/5 border border-vibrant-green/20 rounded-lg p-4">
+                                        <div className="bg-accent-text/5 border border-accent-text/20 rounded-lg p-4">
                                             <p className="text-sm">
-                                                <span className="font-semibold text-vibrant-green">Novel Contribution:</span>{' '}
-                                                <span className="text-charcoal-light">{model.novelContribution}</span>
+                                                <span className="font-semibold text-accent-text">Novel Contribution:</span>{' '}
+                                                <span className="text-secondary-light">{model.novelContribution}</span>
                                             </p>
                                         </div>
 
                                         {/* Outputs */}
                                         <div>
-                                            <h4 className="font-heading font-semibold text-charcoal mb-2">Expected Outputs</h4>
+                                            <h4 className="font-heading font-semibold text-secondary mb-2">Expected Outputs</h4>
                                             <ul className="space-y-1">
                                                 {model.outputs.map((output, i) => (
-                                                    <li key={i} className="flex items-center text-sm text-charcoal-light">
-                                                        <Zap className="w-4 h-4 mr-2 text-warm-orange" />
+                                                    <li key={i} className="flex items-center text-sm text-secondary-light">
+                                                        <Zap className="w-4 h-4 mr-2 text-secondary" />
                                                         {output}
                                                     </li>
                                                 ))}
@@ -281,17 +281,17 @@ const Modeling = () => {
                             viewport={{ once: true }}
                             className="mt-8 grid md:grid-cols-2 gap-6"
                         >
-                            <div className="card border-t-4 border-deep-blue">
-                                <Timer className="w-8 h-8 text-deep-blue mb-3" />
-                                <h4 className="font-heading font-semibold text-charcoal mb-2">Simulation Time</h4>
-                                <p className="text-charcoal-light text-sm">
+                            <div className="card border-t-4 border-primary">
+                                <Timer className="w-8 h-8 text-primary mb-3" />
+                                <h4 className="font-heading font-semibold text-secondary mb-2">Simulation Time</h4>
+                                <p className="text-secondary-light text-sm">
                                     12-24 hour simulations capture full dormancy entry, maintenance, and exit phases.
                                 </p>
                             </div>
-                            <div className="card border-t-4 border-vibrant-green">
-                                <Database className="w-8 h-8 text-vibrant-green mb-3" />
-                                <h4 className="font-heading font-semibold text-charcoal mb-2">Training Data</h4>
-                                <p className="text-charcoal-light text-sm">
+                            <div className="card border-t-4 border-accent-text">
+                                <Database className="w-8 h-8 text-accent-text mb-3" />
+                                <h4 className="font-heading font-semibold text-secondary mb-2">Training Data</h4>
+                                <p className="text-secondary-light text-sm">
                                     1500 codon patterns with full dFBA + translational dynamics simulation for ML training.
                                 </p>
                             </div>
@@ -301,7 +301,7 @@ const Modeling = () => {
             </section>
 
             {/* CTA */}
-            <section className="py-16 bg-deep-blue">
+            <section className="py-16 bg-primary">
                 <div className="container-custom text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -319,7 +319,7 @@ const Modeling = () => {
                                 Software Tools
                                 <ArrowRight className="w-4 h-4 ml-2" />
                             </a>
-                            <a href="/results" className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
+                            <a href="/results" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
                                 View Results
                             </a>
                         </div>
