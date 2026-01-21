@@ -173,9 +173,9 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="lg:hidden mt-2 mx-4"
+                        className="lg:hidden mt-2 mx-4 pb-4"
                     >
-                        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-2">
+                        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-2 ring-1 ring-black/5">
                             {navItems.map((item) => {
                                 const Icon = item.icon
                                 return (
