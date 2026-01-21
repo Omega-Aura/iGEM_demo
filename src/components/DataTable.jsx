@@ -13,9 +13,10 @@ const DataTable = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="overflow-x-auto rounded-xl shadow-card"
+            transition={{ duration: 0.5 }}
+            className="w-full max-w-full overflow-x-auto rounded-xl shadow-card"
         >
-            <table className="w-full">
+            <table className="w-full min-w-[600px]">
                 {caption && (
                     <caption className="text-left text-secondary-light text-sm mb-2 px-4">
                         {caption}

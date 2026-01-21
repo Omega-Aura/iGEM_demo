@@ -106,7 +106,7 @@ const Home = () => {
     ]
 
     return (
-        <div ref={containerRef}>
+        <div ref={containerRef} className="relative">
             {/* Parallax Hero Section with Image Sequence */}
             <ParallaxHeader>
                 <motion.div
@@ -171,7 +171,7 @@ const Home = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="space-y-6"
+                            className="space-y-6 w-full min-w-0"
                         >
                             <div className="card border-l-4 border-accent-text">
                                 <h3 className="text-xl font-heading font-semibold text-secondary mb-3">
@@ -209,6 +209,7 @@ const Home = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
+                            className="w-full min-w-0"
                         >
                             <DataTable
                                 headers={comparisonData.headers}
@@ -244,7 +245,7 @@ const Home = () => {
                     />
 
                     {/* Stats Grid */}
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                         {stats.map((stat, index) => (
                             <StatsCard key={index} {...stat} delay={index * 0.1} />
                         ))}
@@ -275,7 +276,7 @@ const Home = () => {
                         />
 
                         <h3 className="text-2xl font-heading font-bold mb-6 relative z-10">How It Works</h3>
-                        <div className="grid md:grid-cols-5 gap-4 relative z-10">
+                        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative z-10">
                             {[
                                 { step: '01', title: 'Engineer', desc: 'Insert rare codons in metabolic genes (gapA, pfkA)' },
                                 { step: '02', title: 'Deplete', desc: 'Control tRNA availability to induce stalling' },
@@ -327,7 +328,7 @@ const Home = () => {
                                 ))}
                             </ul>
                         </div>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {features.slice(0, 2).map((feature, index) => (
                                 <FeatureCard key={index} {...feature} delay={index * 0.1} />
                             ))}

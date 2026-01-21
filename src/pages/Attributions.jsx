@@ -49,7 +49,7 @@ const Attributions = () => {
             icon: Building,
             items: [
                 {
-                    name: 'University',
+                    name: 'Vellore Institute of Technology, Vellore',
                     role: 'Host Institution',
                     contribution: 'Laboratory facilities, equipment, and administrative support'
                 }
