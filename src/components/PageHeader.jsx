@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const PageHeader = ({ title, subtitle, breadcrumb }) => {
     return (
@@ -21,9 +22,9 @@ const PageHeader = ({ title, subtitle, breadcrumb }) => {
                             <span key={index}>
                                 {index > 0 && <span className="mx-2">/</span>}
                                 {item.link ? (
-                                    <a href={item.link} className="hover:text-white transition-colors">
+                                    <Link to={item.link} className="hover:text-white transition-colors">
                                         {item.label}
-                                    </a>
+                                    </Link>
                                 ) : (
                                     <span className="text-white">{item.label}</span>
                                 )}

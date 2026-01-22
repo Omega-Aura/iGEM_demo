@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { BarChart3, Clock, ArrowRight } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import SectionHeader from '../components/SectionHeader'
@@ -48,10 +49,10 @@ const Results = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <a href="/experiments" className="btn-secondary">
+                            <Link to="/experiments" className="btn-secondary">
                                 View Experimental Design
                                 <ArrowRight className="w-4 h-4 ml-2" />
-                            </a>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>

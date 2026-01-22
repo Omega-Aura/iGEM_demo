@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const Hero = ({
     title,
@@ -95,14 +96,26 @@ const Hero = ({
                             className="flex flex-wrap gap-4"
                         >
                             {primaryAction && (
-                                <a href={primaryAction.href} className="btn-primary">
-                                    {primaryAction.label}
-                                </a>
+                                primaryAction.href.startsWith('/') ? (
+                                    <Link to={primaryAction.href} className="btn-primary">
+                                        {primaryAction.label}
+                                    </Link>
+                                ) : (
+                                    <a href={primaryAction.href} className="btn-primary">
+                                        {primaryAction.label}
+                                    </a>
+                                )
                             )}
                             {secondaryAction && (
-                                <a href={secondaryAction.href} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
-                                    {secondaryAction.label}
-                                </a>
+                                secondaryAction.href.startsWith('/') ? (
+                                    <Link to={secondaryAction.href} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
+                                        {secondaryAction.label}
+                                    </Link>
+                                ) : (
+                                    <a href={secondaryAction.href} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
+                                        {secondaryAction.label}
+                                    </a>
+                                )
                             )}
                         </motion.div>
                     )}

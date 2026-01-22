@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
     Target,
     Lightbulb,
@@ -481,13 +482,13 @@ const Description = () => {
                             Dive deeper into our computational modeling, experimental validation, and software tools.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <a href="/modeling" className="btn-primary">
+                            <Link to="/modeling" className="btn-primary">
                                 Computational Modeling
                                 <ArrowRight className="w-4 h-4 ml-2" />
-                            </a>
-                            <a href="/experiments" className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
+                            </Link>
+                            <Link to="/experiments" className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
                                 Experimental Design
-                            </a>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>

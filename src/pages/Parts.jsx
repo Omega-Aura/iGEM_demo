@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { Dna, Clock, ArrowRight } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import SectionHeader from '../components/SectionHeader'
@@ -89,10 +90,10 @@ const Parts = () => {
                             <p className="text-secondary-light mb-4">
                                 Full sequences and characterization data will be added as parts are constructed and validated.
                             </p>
-                            <a href="/experiments" className="btn-secondary">
+                            <Link to="/experiments" className="btn-secondary">
                                 View Experimental Design
                                 <ArrowRight className="w-4 h-4 ml-2" />
-                            </a>
+                            </Link>
                         </motion.div>
                     </div>
                 </div>

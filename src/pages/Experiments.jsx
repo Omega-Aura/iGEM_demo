@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
     FlaskConical,
     Microscope,
@@ -280,10 +281,10 @@ const Experiments = () => {
                         <p className="text-white/80 max-w-2xl mx-auto mb-8">
                             See how our experimental data validates the computational predictions.
                         </p>
-                        <a href="/results" className="btn-primary">
+                        <Link to="/results" className="btn-primary">
                             Results
                             <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
+                        </Link>
                     </motion.div>
                 </div>
             </section>

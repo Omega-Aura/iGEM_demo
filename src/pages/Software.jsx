@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
     Code2,
     Database,
@@ -354,13 +355,13 @@ const Software = () => {
                             Our wiki provides protocols, analysis scripts, and troubleshooting guides.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <a href="/modeling" className="btn-primary">
+                            <Link to="/modeling" className="btn-primary">
                                 View Modeling Details
                                 <ArrowRight className="w-4 h-4 ml-2" />
-                            </a>
-                            <a href="/experiments" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
+                            </Link>
+                            <Link to="/experiments" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
                                 Experimental Protocols
-                            </a>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>

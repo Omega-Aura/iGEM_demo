@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
     User,
     Mail,
@@ -238,9 +239,9 @@ const Team = () => {
                             We extend our gratitude to our university, sponsors, and the iGEM community
                             for their support in making this project possible.
                         </p>
-                        <a href="/attributions" className="btn-primary">
+                        <Link to="/attributions" className="btn-primary">
                             View Full Attributions
-                        </a>
+                        </Link>
                     </motion.div>
                 </div>
             </section>

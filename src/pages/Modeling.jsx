@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
     Cpu,
     Database,
@@ -315,13 +316,13 @@ const Modeling = () => {
                             See how our computational models power the CodonSync Designer and Metabolic Simulator tools.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <a href="/software" className="btn-primary">
+                            <Link to="/software" className="btn-primary">
                                 Software Tools
                                 <ArrowRight className="w-4 h-4 ml-2" />
-                            </a>
-                            <a href="/results" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
+                            </Link>
+                            <Link to="/results" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
                                 View Results
-                            </a>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>

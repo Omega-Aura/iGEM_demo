@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
     Repeat,
     Wrench,
@@ -369,13 +370,13 @@ const Engineering = () => {
                             Explore the specific protocols and experimental validation approaches we use.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <a href="/experiments" className="btn-primary">
+                            <Link to="/experiments" className="btn-primary">
                                 Experiments
                                 <ArrowRight className="w-4 h-4 ml-2" />
-                            </a>
-                            <a href="/results" className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
+                            </Link>
+                            <Link to="/results" className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
                                 View Results
-                            </a>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
