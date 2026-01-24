@@ -7,19 +7,20 @@ const StatsCard = ({ icon: Icon, value, label, description, delay = 0 }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay }}
-            className="card text-center group hover:border-accent-text border-2 border-transparent"
+            whileHover={{ y: -3 }}
+            className="bg-white text-center group p-6 border-3 border-secondary transition-all duration-200 hover:bg-pastel-mint/30"
         >
             {Icon && (
-                <div className="w-14 h-14 mx-auto mb-4 bg-gradient-to-br from-primary to-primary-light rounded-xl flex items-center justify-center group-hover:from-accent-text group-hover:to-primary transition-all duration-300">
-                    <Icon className="w-7 h-7 text-white" />
+                <div className="w-16 h-16 mx-auto mb-4 bg-primary border-3 border-secondary flex items-center justify-center group-hover:bg-[#BFFF00] transition-all duration-200">
+                    <Icon className="w-8 h-8 text-secondary" />
                 </div>
             )}
-            <div className="text-3xl md:text-4xl font-heading font-bold text-primary mb-2 group-hover:text-accent-text transition-colors">
+            <div className="text-4xl md:text-5xl font-heading font-bold text-secondary mb-2">
                 {value}
             </div>
-            <div className="text-lg font-semibold text-secondary mb-1">{label}</div>
+            <div className="text-lg font-heading font-semibold text-primary mb-1">{label}</div>
             {description && (
-                <p className="text-sm text-secondary-light">{description}</p>
+                <p className="text-sm text-secondary/60">{description}</p>
             )}
         </motion.div>
     )

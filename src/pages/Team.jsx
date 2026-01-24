@@ -115,7 +115,7 @@ const Team = () => {
                                 <div className="flex flex-col md:flex-row gap-6">
                                     {/* Photo */}
                                     <div className="md:w-48 flex-shrink-0">
-                                        <div className="w-48 h-48 mx-auto md:mx-0 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center">
+                                        <div className="w-48 h-48 mx-auto md:mx-0 bg-primary border-3 border-secondary rounded-2xl flex items-center justify-center">
                                             {member.image ? (
                                                 <img src={member.image} alt={member.name} className="w-full h-full object-cover rounded-2xl" />
                                             ) : (
@@ -207,7 +207,7 @@ const Team = () => {
                                 className="card"
                             >
                                 <div className="flex items-start gap-4">
-                                    <div className="w-16 h-16 bg-gradient-to-br from-accent-text to-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <div className="w-16 h-16 bg-primary border-3 border-secondary rounded-xl flex items-center justify-center flex-shrink-0">
                                         <GraduationCap className="w-8 h-8 text-white" />
                                     </div>
                                     <div>

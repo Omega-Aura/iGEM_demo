@@ -155,7 +155,7 @@ const Software = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card bg-gradient-to-br from-primary to-primary-dark text-white p-8 mb-8"
+                            className="bg-secondary text-white p-8 mb-8 border-3 border-secondary"
                         >
                             <div className="flex items-center mb-4">
                                 <Code2 className="w-8 h-8 mr-3" />
@@ -191,7 +191,7 @@ const Software = () => {
                                 <div className="flex flex-col lg:flex-row gap-8">
                                     {/* Header */}
                                     <div className="lg:w-80 flex-shrink-0">
-                                        <div className="w-16 h-16 bg-gradient-to-br from-accent-text to-primary rounded-2xl flex items-center justify-center mb-4">
+                                        <div className="w-16 h-16 bg-primary border-3 border-secondary rounded-2xl flex items-center justify-center mb-4">
                                             <tool.icon className="w-8 h-8 text-white" />
                                         </div>
                                         <h3 className="text-2xl font-heading font-bold text-secondary mb-2">

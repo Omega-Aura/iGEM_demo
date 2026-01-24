@@ -7,49 +7,60 @@ const Hero = ({
     description,
     primaryAction,
     secondaryAction,
-    backgroundVariant = 'gradient' // 'gradient', 'image', 'particles'
+    backgroundVariant = 'gradient'
 }) => {
     return (
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 bg-hero-gradient">
-                {/* Animated background elements */}
-                <div className="absolute inset-0 overflow-hidden">
-                    {/* Floating circles */}
-                    <motion.div
-                        animate={{
-                            y: [0, -20, 0],
-                            opacity: [0.1, 0.2, 0.1]
-                        }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-text/10 rounded-full blur-3xl"
-                    />
-                    <motion.div
-                        animate={{
-                            y: [0, 20, 0],
-                            opacity: [0.1, 0.15, 0.1]
-                        }}
-                        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl"
-                    />
-                    <motion.div
-                        animate={{
-                            scale: [1, 1.1, 1],
-                            opacity: [0.05, 0.1, 0.05]
-                        }}
-                        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-3xl"
-                    />
-                </div>
-
-                {/* Grid overlay */}
+        <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-accent">
+            {/* Background with grid pattern */}
+            <div className="absolute inset-0">
+                {/* Grid pattern */}
                 <div
                     className="absolute inset-0 opacity-10"
                     style={{
-                        backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+                        backgroundImage: `linear-gradient(#1a1a1a 2px, transparent 2px),
+                                          linear-gradient(90deg, #1a1a1a 2px, transparent 2px)`,
                         backgroundSize: '50px 50px'
                     }}
+                />
+
+                {/* Floating geometric shapes - Sharp rectangles */}
+                <motion.div
+                    animate={{
+                        y: [0, -20, 0],
+                        rotate: [0, 5, 0]
+                    }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-20 right-20 w-12 h-12 bg-primary border-3 border-secondary"
+                />
+                <motion.div
+                    animate={{
+                        y: [0, 15, 0],
+                        rotate: [0, -10, 0]
+                    }}
+                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-40 left-20 w-8 h-8 bg-[#BFFF00] border-3 border-secondary"
+                />
+                <motion.div
+                    animate={{
+                        y: [0, -25, 0]
+                    }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute bottom-32 left-1/4 w-16 h-16 bg-accent-text border-3 border-secondary"
+                />
+                <motion.div
+                    animate={{
+                        y: [0, 20, 0],
+                        rotate: [0, 15, 0]
+                    }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute bottom-40 right-1/4 w-6 h-6 bg-festival-coral border-3 border-secondary"
+                />
+                <motion.div
+                    animate={{
+                        y: [0, -15, 0]
+                    }}
+                    transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-1/3 right-1/3 w-10 h-10 bg-pastel-purple border-3 border-secondary"
                 />
             </div>
 
@@ -61,10 +72,10 @@ const Hero = ({
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6"
+                            className="inline-flex items-center space-x-2 bg-primary px-5 py-2.5 mb-6 border-3 border-secondary"
                         >
-                            <span className="w-2 h-2 bg-accent-text rounded-full animate-pulse" />
-                            <span className="text-white/90 text-sm font-medium">{subtitle}</span>
+                            <span className="w-2.5 h-2.5 bg-secondary" />
+                            <span className="text-secondary font-heading font-semibold text-sm uppercase tracking-wider">{subtitle}</span>
                         </motion.div>
                     )}
 
@@ -72,7 +83,7 @@ const Hero = ({
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-tight"
+                        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-secondary mb-6 leading-tight"
                     >
                         {title}
                     </motion.h1>
@@ -82,7 +93,7 @@ const Hero = ({
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-base sm:text-lg md:text-xl text-white/80 mb-8 max-w-2xl leading-relaxed"
+                            className="text-lg sm:text-xl md:text-2xl text-secondary/70 mb-8 max-w-2xl leading-relaxed"
                         >
                             {description}
                         </motion.p>
@@ -108,11 +119,11 @@ const Hero = ({
                             )}
                             {secondaryAction && (
                                 secondaryAction.href.startsWith('/') ? (
-                                    <Link to={secondaryAction.href} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
+                                    <Link to={secondaryAction.href} className="btn-secondary">
                                         {secondaryAction.label}
                                     </Link>
                                 ) : (
-                                    <a href={secondaryAction.href} className="btn-outline border-white text-white hover:bg-white hover:text-primary">
+                                    <a href={secondaryAction.href} className="btn-secondary">
                                         {secondaryAction.label}
                                     </a>
                                 )
@@ -132,9 +143,13 @@ const Hero = ({
                 <motion.div
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2"
+                    className="w-8 h-12 border-3 border-secondary flex justify-center pt-2 bg-white"
                 >
-                    <div className="w-1 h-2 bg-white/50 rounded-full" />
+                    <motion.div
+                        animate={{ opacity: [0.5, 1, 0.5] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="w-2 h-3 bg-primary"
+                    />
                 </motion.div>
             </motion.div>
         </section>

@@ -17,33 +17,34 @@ const FeatureCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      className={`card group h-full ${variant === 'highlighted'
-          ? 'border-2 border-accent-text bg-gradient-to-br from-white to-accent-text/5'
-          : 'hover:border-primary border-2 border-transparent'
+      whileHover={{ y: -3 }}
+      className={`group h-full p-6 transition-all duration-200 border-3 border-secondary ${variant === 'highlighted'
+        ? 'bg-[#BFFF00] hover:bg-[#d4ff33]'
+        : 'bg-white hover:bg-pastel-mint/30'
         }`}
     >
       {Icon && (
-        <div className={`w-12 h-12 mb-4 rounded-lg flex items-center justify-center ${variant === 'highlighted'
-            ? 'bg-accent-text text-white'
-            : 'bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white'
-          } transition-all duration-300`}>
-          <Icon className="w-6 h-6" />
+        <div className={`w-14 h-14 mb-5 flex items-center justify-center border-3 border-secondary ${variant === 'highlighted'
+          ? 'bg-primary text-secondary'
+          : 'bg-primary text-secondary group-hover:bg-[#BFFF00]'
+          } transition-all duration-200`}>
+          <Icon className="w-7 h-7" />
         </div>
       )}
 
-      <h3 className="text-xl font-heading font-semibold text-secondary mb-3">
+      <h3 className="text-xl font-heading font-bold text-secondary mb-3">
         {title}
       </h3>
 
-      <p className="text-secondary-light mb-4 leading-relaxed">
+      <p className="text-secondary/70 mb-5 leading-relaxed">
         {description}
       </p>
 
       {link && (
         <div className="mt-auto">
-          <span className="inline-flex items-center text-primary font-medium group-hover:text-accent-text transition-colors">
+          <span className="inline-flex items-center font-heading font-bold transition-colors text-secondary group-hover:text-primary">
             {linkText}
-            <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
           </span>
         </div>
       )}

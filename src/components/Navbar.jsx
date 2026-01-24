@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, ChevronDown, Home, Beaker, FlaskConical, Cpu, Users } from 'lucide-react'
+import { Menu, X, ChevronDown, BookOpen, FlaskConical, Settings, Users } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navItems = [
-    { name: 'Home', path: '/', icon: Home },
     {
         name: 'Project',
-        icon: Beaker,
+        icon: BookOpen,
         children: [
             { name: 'Description', path: '/description' },
             { name: 'Engineering Success', path: '/engineering' },
@@ -26,7 +25,7 @@ const navItems = [
     },
     {
         name: 'Computational',
-        icon: Cpu,
+        icon: Settings,
         children: [
             { name: 'Modeling', path: '/modeling' },
             { name: 'Software', path: '/software' },
@@ -72,28 +71,20 @@ const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 z-50 py-4">
             <div className="container-custom">
                 <div className="flex items-center justify-center">
-                    {/* Pill-shaped navbar container */}
-                    <div className={`flex items-center gap-1 p-1.5 rounded-full transition-all duration-300 border border-white/20 ${scrolled
-                        ? 'bg-white/90 backdrop-blur-md shadow-lg ring-1 ring-black/5'
-                        : 'bg-white/70 backdrop-blur-sm shadow-sm'
-                        }`}>
-                        {/* Logo - inside pill */}
+                    {/* Floating navbar with items */}
+                    <div className="flex items-center gap-0">
+                        {/* Logo - Cyan box with thick border */}
                         <Link
                             to="/"
-                            className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 ${location.pathname === '/'
-                                ? 'bg-primary/5 text-primary shadow-sm'
-                                : 'hover:bg-primary/5'
-                                }`}
+                            className="flex items-center gap-2 px-4 py-2.5 bg-primary border-3 border-secondary text-secondary font-heading font-bold hover:bg-primary-light transition-all duration-200"
                         >
-                            <img src="/logo.png" alt="TRE-Pod Logo" className="w-6 h-6 rounded-md" />
-                            <span className="font-heading font-semibold text-secondary">
-                                TRE-Pod
-                            </span>
+                            <img src="/logo.png" alt="TRE-Pod Logo" className="w-5 h-5" />
+                            <span className="text-base tracking-tight">TRE-Pod</span>
                         </Link>
 
-                        {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center gap-1">
-                            {navItems.slice(1).map((item) => {
+                        {/* Desktop Navigation - Dark background items */}
+                        <div className="hidden lg:flex items-center">
+                            {navItems.map((item) => {
                                 const Icon = item.icon
                                 const active = isActive(item)
 
@@ -104,44 +95,33 @@ const Navbar = () => {
                                         onMouseEnter={() => item.children && setActiveDropdown(item.name)}
                                         onMouseLeave={() => setActiveDropdown(null)}
                                     >
-                                        {item.children ? (
-                                            <button
-                                                className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-200 ${active
-                                                    ? 'bg-primary text-white shadow-md'
-                                                    : 'text-secondary hover:bg-primary/5 hover:text-primary'
-                                                    }`}
-                                            >
-                                                <Icon className={`w-4 h-4 ${active ? 'text-white' : 'text-primary'}`} />
-                                                <span>{item.name}</span>
-                                            </button>
-                                        ) : (
-                                            <Link
-                                                to={item.path}
-                                                className={`flex items-center gap-2 px-4 py-2 rounded-full font-medium transition-all duration-200 ${active
-                                                    ? 'bg-primary text-white shadow-md'
-                                                    : 'text-secondary hover:bg-primary/5 hover:text-primary'
-                                                    }`}
-                                            >
-                                                <Icon className={`w-4 h-4 ${active ? 'text-white' : 'text-primary'}`} />
-                                                <span>{item.name}</span>
-                                            </Link>
-                                        )}
+                                        <button
+                                            className={`flex items-center gap-2 px-4 py-2.5 font-heading font-medium transition-all duration-200 border-y-3 border-r-3 border-secondary ${active
+                                                ? 'bg-[#BFFF00] text-secondary'
+                                                : 'bg-secondary/90 text-white hover:bg-secondary hover:text-primary'
+                                                }`}
+                                        >
+                                            <Icon className={`w-4 h-4 ${active ? 'text-secondary' : 'text-primary'}`} />
+                                            <span className="text-sm">{item.name}</span>
+                                        </button>
 
-                                        {/* Dropdown */}
+                                        {/* Dropdown - Sharp rectangular styling */}
                                         <AnimatePresence>
                                             {item.children && activeDropdown === item.name && (
                                                 <motion.div
-                                                    initial={{ opacity: 0, y: 10 }}
+                                                    initial={{ opacity: 0, y: 5 }}
                                                     animate={{ opacity: 1, y: 0 }}
-                                                    exit={{ opacity: 0, y: 10 }}
-                                                    transition={{ duration: 0.2 }}
-                                                    className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white rounded-2xl shadow-xl py-2 border border-gray-100"
+                                                    exit={{ opacity: 0, y: 5 }}
+                                                    transition={{ duration: 0.15 }}
+                                                    className="absolute top-full left-0 mt-0 w-56 bg-white py-1 border-3 border-secondary shadow-xl"
                                                 >
                                                     {item.children.map((child) => (
                                                         <Link
                                                             key={child.path}
                                                             to={child.path}
-                                                            className={`block px-4 py-2.5 text-secondary hover:bg-accent hover:text-primary transition-colors ${location.pathname === child.path ? 'text-primary bg-accent' : ''
+                                                            className={`block px-4 py-2.5 font-medium transition-all text-sm ${location.pathname === child.path
+                                                                ? 'text-secondary bg-primary border-l-4 border-secondary'
+                                                                : 'text-secondary hover:bg-[#BFFF00] hover:border-l-4 hover:border-secondary'
                                                                 }`}
                                                         >
                                                             {child.name}
@@ -158,7 +138,7 @@ const Navbar = () => {
                         {/* Mobile Menu Button */}
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="lg:hidden p-2 rounded-full text-secondary hover:bg-primary/5 transition-colors"
+                            className="lg:hidden p-2.5 bg-secondary border-3 border-secondary text-white hover:text-primary transition-colors"
                         >
                             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                         </button>
@@ -175,60 +155,57 @@ const Navbar = () => {
                         exit={{ opacity: 0, y: -10 }}
                         className="lg:hidden mt-2 mx-4 pb-4"
                     >
-                        <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 p-2 ring-1 ring-black/5">
+                        <div className="bg-white shadow-xl border-3 border-secondary p-2">
+                            {/* Mobile Home Link */}
+                            <Link
+                                to="/"
+                                className={`flex items-center gap-2 px-4 py-3 font-heading font-semibold transition-colors ${location.pathname === '/'
+                                    ? 'bg-primary text-secondary'
+                                    : 'text-secondary hover:bg-[#BFFF00]'
+                                    }`}
+                            >
+                                <img src="/logo.png" alt="TRE-Pod Logo" className="w-4 h-4" />
+                                <span>Home</span>
+                            </Link>
+
                             {navItems.map((item) => {
                                 const Icon = item.icon
                                 return (
                                     <div key={item.name}>
-                                        {item.children ? (
-                                            <div>
-                                                <button
-                                                    onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                                                    className={`flex items-center justify-between w-full px-4 py-3 text-secondary font-medium rounded-xl hover:bg-accent transition-colors ${isActive(item) ? 'bg-accent text-primary' : ''
-                                                        }`}
-                                                >
-                                                    <div className="flex items-center gap-2">
-                                                        <Icon className="w-4 h-4 text-primary" />
-                                                        <span>{item.name}</span>
-                                                    </div>
-                                                    <ChevronDown className={`w-4 h-4 text-primary transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
-                                                </button>
-                                                <AnimatePresence>
-                                                    {activeDropdown === item.name && (
-                                                        <motion.div
-                                                            initial={{ opacity: 0, height: 0 }}
-                                                            animate={{ opacity: 1, height: 'auto' }}
-                                                            exit={{ opacity: 0, height: 0 }}
-                                                            className="pl-4 space-y-1 overflow-hidden"
-                                                        >
-                                                            {item.children.map((child) => (
-                                                                <Link
-                                                                    key={child.path}
-                                                                    to={child.path}
-                                                                    className={`block px-4 py-2 rounded-lg transition-colors ${location.pathname === child.path
-                                                                        ? 'text-primary bg-accent'
-                                                                        : 'text-secondary/70 hover:text-primary'
-                                                                        }`}
-                                                                >
-                                                                    {child.name}
-                                                                </Link>
-                                                            ))}
-                                                        </motion.div>
-                                                    )}
-                                                </AnimatePresence>
-                                            </div>
-                                        ) : (
-                                            <Link
-                                                to={item.path}
-                                                className={`flex items-center gap-2 px-4 py-3 font-medium rounded-xl transition-colors ${location.pathname === item.path
-                                                    ? 'bg-accent text-primary'
-                                                    : 'text-secondary hover:bg-accent'
-                                                    }`}
-                                            >
-                                                <Icon className="w-4 h-4 text-primary" />
+                                        <button
+                                            onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                                            className={`flex items-center justify-between w-full px-4 py-3 font-heading font-semibold hover:bg-[#BFFF00] transition-colors ${isActive(item) ? 'bg-primary text-secondary' : 'text-secondary'
+                                                }`}
+                                        >
+                                            <div className="flex items-center gap-2">
+                                                <Icon className="w-4 h-4 text-secondary" />
                                                 <span>{item.name}</span>
-                                            </Link>
-                                        )}
+                                            </div>
+                                            <ChevronDown className={`w-4 h-4 text-secondary transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
+                                        </button>
+                                        <AnimatePresence>
+                                            {activeDropdown === item.name && (
+                                                <motion.div
+                                                    initial={{ opacity: 0, height: 0 }}
+                                                    animate={{ opacity: 1, height: 'auto' }}
+                                                    exit={{ opacity: 0, height: 0 }}
+                                                    className="pl-4 space-y-1 overflow-hidden border-l-3 border-secondary ml-4"
+                                                >
+                                                    {item.children.map((child) => (
+                                                        <Link
+                                                            key={child.path}
+                                                            to={child.path}
+                                                            className={`block px-4 py-2 font-medium transition-colors ${location.pathname === child.path
+                                                                ? 'text-secondary bg-primary'
+                                                                : 'text-secondary/70 hover:text-secondary hover:bg-[#BFFF00]'
+                                                                }`}
+                                                        >
+                                                            {child.name}
+                                                        </Link>
+                                                    ))}
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
                                 )
                             })}
