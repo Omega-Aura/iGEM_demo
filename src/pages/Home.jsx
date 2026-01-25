@@ -22,6 +22,7 @@ import SectionHeader from '../components/SectionHeader'
 import StatsCard from '../components/StatsCard'
 import FeatureCard from '../components/FeatureCard'
 import DataTable from '../components/DataTable'
+import BangerBox from '../components/BangerBox'
 
 const Home = () => {
     const containerRef = useRef(null)
@@ -119,11 +120,11 @@ const Home = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.2 }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-heading font-bold text-white mb-6">
+                        <h1 className="text-5xl md:text-7xl font-['Bangers'] tracking-wide text-white mb-6">
                             Translational Rhythm Engineering<br />
                             for <span className="text-primary">Programmed Dormancy</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8">
+                        <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-['Comic_Neue']">
                             Engineering reversible cellular dormancy through codon-specific ribosomal stalling.
                             A synthetic biology approach to preserve living cells without cryogenic infrastructure.
                         </p>
@@ -164,40 +165,40 @@ const Home = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="space-y-6 w-full min-w-0"
+                            className="space-y-8 w-full min-w-0"
                         >
-                            <div className="bg-white border-3 border-secondary p-6 hover:bg-pastel-mint/30 transition-all duration-200">
-                                <h3 className="text-xl font-heading font-bold text-secondary mb-3 flex items-center gap-2">
-                                    <span className="w-3 h-8 bg-primary" />
+                            <BangerBox badgeText="EXPENSIVE!" className="bg-white">
+                                <h3 className="text-2xl font-['Bangers'] tracking-wide text-black mb-3 flex items-center gap-2">
+                                    <span className="w-3 h-8 bg-black" />
                                     Infrastructure Costs
                                 </h3>
-                                <p className="text-secondary/70">
-                                    Cryogenic infrastructure costs <span className="font-bold text-primary">$50,000-500,000</span> per
+                                <p className="text-black font-medium text-lg">
+                                    Cryogenic infrastructure costs <span className="font-bold bg-yellow-300 px-1 border-2 border-black transform -rotate-1 inline-block">$50,000-500,000</span> per
                                     facility, requiring continuous power and liquid nitrogen supply.
                                 </p>
-                            </div>
+                            </BangerBox>
 
-                            <div className="bg-white border-3 border-secondary p-6 hover:bg-[#BFFF00]/30 transition-all duration-200">
-                                <h3 className="text-xl font-heading font-bold text-secondary mb-3 flex items-center gap-2">
-                                    <span className="w-3 h-8 bg-[#BFFF00]" />
+                            <BangerBox badgeText="UNAVAILABLE!" delay={0.2} className="ml-4 md:ml-8 bg-white">
+                                <h3 className="text-2xl font-['Bangers'] tracking-wide text-black mb-3 flex items-center gap-2">
+                                    <span className="w-3 h-8 bg-black" />
                                     Accessibility Gap
                                 </h3>
-                                <p className="text-secondary/70">
+                                <p className="text-black font-medium text-lg">
                                     Cold-chain preservation is unavailable in low-resource settings, rural areas,
                                     and developing nations—limiting global biotech deployment.
                                 </p>
-                            </div>
+                            </BangerBox>
 
-                            <div className="bg-white border-3 border-secondary p-6 hover:bg-accent-text/10 transition-all duration-200">
-                                <h3 className="text-xl font-heading font-bold text-secondary mb-3 flex items-center gap-2">
-                                    <span className="w-3 h-8 bg-accent-text" />
+                            <BangerBox badgeText="DAMAGING!" delay={0.4} className="bg-white">
+                                <h3 className="text-2xl font-['Bangers'] tracking-wide text-black mb-3 flex items-center gap-2">
+                                    <span className="w-3 h-8 bg-black" />
                                     Cell Damage
                                 </h3>
-                                <p className="text-secondary/70">
-                                    Cryoinjury causes <span className="font-bold text-accent-text">30-70% viability loss</span> through
+                                <p className="text-black font-medium text-lg">
+                                    Cryoinjury causes <span className="font-bold bg-red-400 text-white px-1 border-2 border-black transform rotate-1 inline-block">30-70% viability loss</span> through
                                     ROS damage, apoptosis, and ice-crystal formation.
                                 </p>
-                            </div>
+                            </BangerBox>
                         </motion.div>
 
                         <motion.div
@@ -252,17 +253,16 @@ const Home = () => {
                     </div>
 
                     {/* Mechanism Overview - Dark themed block with dark grid */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="bg-secondary border-3 border-secondary p-8 md:p-12 text-white mb-16 relative overflow-hidden"
+                    <BangerBox
+                        className="bg-secondary text-white mb-16 relative"
                     >
-                        <div className="absolute inset-0 grid-pattern-dark" />
-                        <div className="relative z-10">
-                            <h3 className="text-2xl font-heading font-bold mb-6 flex items-center gap-3">
-                                <div className="w-8 h-8 bg-primary flex items-center justify-center">
+                        <div
+                            className="absolute inset-0 grid-pattern-dark opacity-100 overflow-hidden"
+                            style={{ borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px" }}
+                        />
+                        <div className="relative z-10 p-2 md:p-6">
+                            <h3 className="text-2xl font-['Bangers'] tracking-wide font-bold mb-6 flex items-center gap-3">
+                                <div className="w-8 h-8 bg-primary border-[3px] border-black flex items-center justify-center">
                                     <Sparkles className="w-5 h-5 text-secondary" />
                                 </div>
                                 How It Works
@@ -283,21 +283,21 @@ const Home = () => {
                                         viewport={{ once: true }}
                                         transition={{ delay: index * 0.1 }}
                                     >
-                                        <div className="w-14 h-14 mx-auto mb-3 bg-primary border-3 border-white/20 flex items-center justify-center">
-                                            <span className="text-secondary font-heading font-bold">{item.step}</span>
+                                        <div className="w-14 h-14 mx-auto mb-3 bg-primary border-[3px] border-black flex items-center justify-center">
+                                            <span className="text-secondary font-['Bangers'] text-xl tracking-wide font-bold">{item.step}</span>
                                         </div>
-                                        <h4 className="font-heading font-bold mb-1">{item.title}</h4>
-                                        <p className="text-sm text-white/60">{item.desc}</p>
+                                        <h4 className="font-['Bangers'] tracking-wide font-bold mb-1">{item.title}</h4>
+                                        <p className="text-sm text-white/60 font-medium">{item.desc}</p>
                                     </motion.div>
                                 ))}
                             </div>
                         </div>
-                    </motion.div>
+                    </BangerBox>
 
                     {/* Innovation List */}
                     <div className="grid md:grid-cols-2 gap-8 items-center">
                         <div>
-                            <h3 className="text-2xl font-heading font-bold text-secondary mb-6">
+                            <h3 className="text-2xl font-['Bangers'] tracking-wide text-secondary mb-6">
                                 Why TRE-Pod is Novel
                             </h3>
                             <ul className="space-y-4">
@@ -313,7 +313,7 @@ const Home = () => {
                                         <div className="w-6 h-6 bg-primary border-2 border-secondary flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
                                             <CheckCircle2 className="w-4 h-4 text-secondary" />
                                         </div>
-                                        <span className="text-secondary/70">{item}</span>
+                                        <span className="text-secondary/70 font-['Comic_Neue'] font-bold">{item}</span>
                                     </motion.li>
                                 ))}
                             </ul>
@@ -372,56 +372,53 @@ const Home = () => {
                                 centered={false}
                             />
 
-                            <div className="space-y-4">
+                            <div className="space-y-6">
                                 {[
-                                    { icon: Leaf, title: 'SDG 3: Good Health', desc: 'Accessible cell therapy preservation', color: 'primary' },
-                                    { icon: Beaker, title: 'SDG 6: Clean Water', desc: 'Deployable bioremediation strains', color: '[#BFFF00]' },
-                                    { icon: Cpu, title: 'SDG 9: Industry & Innovation', desc: 'Platform technology for global biotech', color: 'accent-text' },
+                                    { icon: Leaf, title: 'SDG 3: Good Health', desc: 'Accessible cell therapy preservation', color: 'bg-primary' },
+                                    { icon: Beaker, title: 'SDG 6: Clean Water', desc: 'Deployable bioremediation strains', color: 'bg-[#BFFF00]' },
+                                    { icon: Cpu, title: 'SDG 9: Industry & Innovation', desc: 'Platform technology for global biotech', color: 'bg-accent-text' },
                                 ].map((item, index) => (
-                                    <motion.div
+                                    <BangerBox
                                         key={index}
-                                        initial={{ opacity: 0, y: 10 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.1 }}
-                                        className="flex items-start space-x-4 bg-white border-3 border-secondary p-4 hover:bg-pastel-mint/30 transition-all duration-200"
+                                        delay={index * 0.1}
+                                        className="flex items-start space-x-4 bg-white hover:bg-pastel-mint/30 transition-all duration-200"
                                     >
-                                        <div className={`w-12 h-12 bg-${item.color} border-3 border-secondary flex items-center justify-center flex-shrink-0`}>
+                                        <div className={`w-12 h-12 ${item.color} border-[3px] border-black flex items-center justify-center flex-shrink-0`}>
                                             <item.icon className="w-6 h-6 text-secondary" />
                                         </div>
                                         <div>
-                                            <h4 className="font-heading font-bold text-secondary">{item.title}</h4>
-                                            <p className="text-secondary/60 text-sm">{item.desc}</p>
+                                            <h4 className="font-['Bangers'] text-xl tracking-wide text-secondary">{item.title}</h4>
+                                            <p className="text-secondary/60 text-sm font-medium">{item.desc}</p>
                                         </div>
-                                    </motion.div>
+                                    </BangerBox>
                                 ))}
                             </div>
                         </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="bg-primary border-3 border-secondary p-8 text-secondary relative overflow-hidden"
+                        <BangerBox
+                            className="bg-primary text-secondary relative"
+                            badgeText="$100B+"
                         >
-                            <div className="absolute inset-0 grid-pattern-light" />
+                            <div
+                                className="absolute inset-0 grid-pattern-light opacity-30 overflow-hidden"
+                                style={{ borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px" }}
+                            />
                             <div className="relative z-10">
-                                <h3 className="text-4xl font-heading font-bold mb-2">$100B+</h3>
-                                <p className="text-secondary/70 mb-6">Global biobanking and cell therapy market annually</p>
+                                <h3 className="text-4xl font-['Bangers'] font-bold mb-2 tracking-wide">Market Size</h3>
+                                <p className="text-secondary/80 mb-6 font-medium">Global biobanking and cell therapy market annually</p>
 
                                 <div className="space-y-4">
-                                    <div className="bg-white border-3 border-secondary p-5">
-                                        <div className="text-2xl font-heading font-bold">Scalable</div>
-                                        <p className="text-secondary/70 text-sm">Platform technology applicable to microbes, cell lines, and biopharmaceuticals</p>
+                                    <div className="bg-white border-[3px] border-black p-4 transform -rotate-1">
+                                        <div className="text-2xl font-['Bangers'] tracking-wide">Scalable</div>
+                                        <p className="text-secondary/70 text-sm font-medium">Platform technology applicable to microbes, cell lines, and biopharmaceuticals</p>
                                     </div>
-                                    <div className="bg-[#BFFF00] border-3 border-secondary p-5">
-                                        <div className="text-2xl font-heading font-bold">Sustainable</div>
-                                        <p className="text-secondary/70 text-sm">Eliminates cold-chain dependency and energy-intensive preservation</p>
+                                    <div className="bg-[#BFFF00] border-[3px] border-black p-4 transform rotate-1">
+                                        <div className="text-2xl font-['Bangers'] tracking-wide">Sustainable</div>
+                                        <p className="text-secondary/70 text-sm font-medium">Eliminates cold-chain dependency and energy-intensive preservation</p>
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </BangerBox>
                     </div>
                 </div>
             </section>
@@ -453,10 +450,10 @@ const Home = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-5xl font-['Bangers'] tracking-wide text-white mb-4">
                             Ready to Explore the Science?
                         </h2>
-                        <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
+                        <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto font-['Comic_Neue'] font-bold">
                             Dive into our comprehensive project documentation, from mechanism design
                             to computational modeling and experimental validation.
                         </p>

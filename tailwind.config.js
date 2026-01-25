@@ -37,8 +37,10 @@ export default {
                 'serif': ['Lora', 'serif'],
                 'mono': ['Inconsolata', 'monospace'],
                 'heading': ['Space Grotesk', 'sans-serif'],
-                'body': ['DM Sans', 'sans-serif'],
-                'display': ['Space Grotesk', 'sans-serif'],
+                'body': ['Comic Neue', 'DM Sans', 'sans-serif'],
+                'display': ['Bangers', 'Space Grotesk', 'sans-serif'],
+                'comic': ['Bangers', 'cursive'],
+                'comic-body': ['Comic Neue', 'cursive'],
             },
             fontSize: {
                 'h1': ['3rem', { lineHeight: '3.25rem', fontWeight: '700', letterSpacing: '-0.02em' }],

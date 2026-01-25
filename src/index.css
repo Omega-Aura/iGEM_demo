@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inconsolata:wght@200..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inconsolata:wght@200..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,6 +16,7 @@
     body {
         @apply font-body bg-accent antialiased;
         color: #1a1a1a;
+        font-family: 'Comic Neue', 'DM Sans', sans-serif;
     }
 
     h1,
@@ -24,7 +25,8 @@
     h4,
     h5,
     h6 {
-        @apply font-heading;
+        font-family: 'Bangers', cursive;
+        letter-spacing: 0.05em;
     }
 
     code,
@@ -37,22 +39,30 @@
 
     /* Primary Button - Sharp rectangle with thick black border (cyan fill) */
     .btn-primary {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-secondary font-bold border-3 border-secondary hover:bg-primary-light transition-all duration-200 transform hover:-translate-y-0.5;
+        @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-secondary border-3 border-secondary hover:bg-primary-light transition-all duration-200 transform hover:-translate-y-0.5;
+        font-family: 'Bangers', cursive;
+        letter-spacing: 0.05em;
     }
 
     /* Secondary Button - Sharp rectangle (lime green fill) */
     .btn-secondary {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-[#BFFF00] text-secondary font-bold border-3 border-secondary hover:bg-[#d4ff33] transition-all duration-200 transform hover:-translate-y-0.5;
+        @apply inline-flex items-center justify-center px-6 py-3 bg-[#BFFF00] text-secondary border-3 border-secondary hover:bg-[#d4ff33] transition-all duration-200 transform hover:-translate-y-0.5;
+        font-family: 'Bangers', cursive;
+        letter-spacing: 0.05em;
     }
 
     /* Outline Button - Sharp rectangle, transparent with thick border */
     .btn-outline {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-transparent border-3 border-secondary text-secondary font-bold hover:bg-secondary hover:text-white transition-all duration-200;
+        @apply inline-flex items-center justify-center px-6 py-3 bg-transparent border-3 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-200;
+        font-family: 'Bangers', cursive;
+        letter-spacing: 0.05em;
     }
 
     /* Accent Button - Sharp rectangle (purple themed) */
     .btn-accent {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-accent-text text-white font-bold border-3 border-secondary hover:opacity-90 transition-all duration-200 transform hover:-translate-y-0.5;
+        @apply inline-flex items-center justify-center px-6 py-3 bg-accent-text text-white border-3 border-secondary hover:opacity-90 transition-all duration-200 transform hover:-translate-y-0.5;
+        font-family: 'Bangers', cursive;
+        letter-spacing: 0.05em;
     }
 
     /* Icon Button - Square with thick border */
