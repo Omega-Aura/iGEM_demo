@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useRef } from 'react'
 import {
     Repeat,
     Wrench,
@@ -14,8 +15,12 @@ import {
 import PageHeader from '../components/PageHeader'
 import SectionHeader from '../components/SectionHeader'
 import DataTable from '../components/DataTable'
+import { useParallax } from '../hooks/useParallax'
 
 const Engineering = () => {
+    const containerRef = useRef(null)
+    useParallax(containerRef)
+    
     const breadcrumb = [
         { label: 'Home', link: '/' },
         { label: 'Project', link: '#' },
@@ -148,7 +153,7 @@ const Engineering = () => {
     ]
 
     return (
-        <>
+        <div ref={containerRef}>
             <PageHeader
                 title="Engineering Success"
                 subtitle="Iterative Design-Build-Test-Learn cycles for dormancy engineering"
@@ -156,8 +161,9 @@ const Engineering = () => {
             />
 
             {/* Overview */}
-            <section className="py-16">
-                <div className="container-custom">
+            <section className="py-16 relative overflow-hidden">
+                <div className="absolute inset-0 grid-pattern-lime opacity-10 parallax-bg" />
+                <div className="container-custom relative z-10">
                     <div className="max-w-4xl mx-auto">
                         <SectionHeader
                             tag="Approach"
@@ -381,7 +387,7 @@ const Engineering = () => {
                     </motion.div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 

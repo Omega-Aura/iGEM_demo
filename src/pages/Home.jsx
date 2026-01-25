@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useRef } from 'react'
 import {
     Beaker,
@@ -23,17 +23,11 @@ import StatsCard from '../components/StatsCard'
 import FeatureCard from '../components/FeatureCard'
 import DataTable from '../components/DataTable'
 import BangerBox from '../components/BangerBox'
+import { useParallax } from '../hooks/useParallax'
 
 const Home = () => {
     const containerRef = useRef(null)
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"]
-    })
-
-    const y1 = useTransform(scrollYProgress, [0, 1], [0, -100])
-    const y2 = useTransform(scrollYProgress, [0, 1], [0, -200])
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+    useParallax(containerRef)
     const stats = [
         {
             icon: TrendingDown,
@@ -113,44 +107,40 @@ const Home = () => {
             <ParallaxHeader>
                 <motion.div
                     className="container-custom text-center px-6"
-                    style={{ y: y1, opacity }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.2 }}
                 >
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                    >
-                        <h1 className="text-5xl md:text-7xl font-['Bangers'] tracking-wide text-white mb-6">
-                            Translational Rhythm Engineering<br />
-                            for <span className="text-primary">Programmed Dormancy</span>
-                        </h1>
-                        <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-['Comic_Neue']">
-                            Engineering reversible cellular dormancy through codon-specific ribosomal stalling.
-                            A synthetic biology approach to preserve living cells without cryogenic infrastructure.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link
-                                to="/description"
-                                className="btn-primary inline-flex items-center gap-2"
-                            >
-                                Explore the Science
-                                <ArrowRight className="w-5 h-5" />
-                            </Link>
-                            <Link
-                                to="/results"
-                                className="btn-accent inline-flex items-center gap-2"
-                            >
-                                View Results
-                                <ArrowRight className="w-5 h-5" />
-                            </Link>
-                        </div>
-                    </motion.div>
+                    <h1 className="text-5xl md:text-7xl font-['Bangers'] tracking-wide text-white mb-6">
+                        Translational Rhythm Engineering<br />
+                        for <span className="text-primary">Programmed Dormancy</span>
+                    </h1>
+                    <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-['Comic_Neue']">
+                        Engineering reversible cellular dormancy through codon-specific ribosomal stalling.
+                        A synthetic biology approach to preserve living cells without cryogenic infrastructure.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link
+                            to="/description"
+                            className="btn-primary inline-flex items-center gap-2"
+                        >
+                            Explore the Science
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                        <Link
+                            to="/results"
+                            className="btn-accent inline-flex items-center gap-2"
+                        >
+                            View Results
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                    </div>
                 </motion.div>
             </ParallaxHeader>
 
             {/* Problem Statement Section - Primary (cyan) grid */}
             <section className="py-20 bg-white relative overflow-hidden border-b-3 border-secondary">
-                <div className="absolute inset-0 grid-pattern-primary" />
+                <div className="absolute inset-0 grid-pattern-primary parallax-bg" />
 
                 <div className="container-custom relative z-10">
                     <SectionHeader
@@ -224,18 +214,18 @@ const Home = () => {
 
             {/* Solution Overview Section - Lime grid */}
             <section className="py-20 bg-accent relative overflow-hidden border-b-3 border-secondary">
-                <div className="absolute inset-0 grid-pattern-lime" />
+                <div className="absolute inset-0 grid-pattern-lime parallax-bg" />
 
                 {/* Floating geometric shapes */}
                 <motion.div
                     animate={{ y: [0, -15, 0] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-32 left-20 w-8 h-8 bg-primary border-3 border-secondary"
+                    className="absolute top-32 left-20 w-8 h-8 bg-primary border-3 border-secondary parallax-slow"
                 />
                 <motion.div
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-40 right-24 w-10 h-10 bg-[#BFFF00] border-3 border-secondary"
+                    className="absolute bottom-40 right-24 w-10 h-10 bg-[#BFFF00] border-3 border-secondary parallax-slow"
                 />
 
                 <div className="container-custom relative z-10">
@@ -329,7 +319,7 @@ const Home = () => {
 
             {/* Features Grid - Accent (purple) grid */}
             <section className="py-20 bg-white relative overflow-hidden border-b-3 border-secondary">
-                <div className="absolute inset-0 grid-pattern-accent" />
+                <div className="absolute inset-0 grid-pattern-accent parallax-bg" />
 
                 <div className="container-custom relative z-10">
                     <SectionHeader
@@ -348,18 +338,18 @@ const Home = () => {
 
             {/* Impact Section - Primary grid on cream background */}
             <section className="py-20 bg-accent relative overflow-hidden border-b-3 border-secondary">
-                <div className="absolute inset-0 grid-pattern-primary" />
+                <div className="absolute inset-0 grid-pattern-primary parallax-bg" />
 
                 {/* Floating shapes */}
                 <motion.div
                     animate={{ y: [0, -20, 0] }}
                     transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-20 right-20 w-12 h-12 bg-accent-text border-3 border-secondary"
+                    className="absolute top-20 right-20 w-12 h-12 bg-accent-text border-3 border-secondary parallax-medium"
                 />
                 <motion.div
                     animate={{ y: [0, 15, 0] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-32 left-16 w-8 h-8 bg-primary border-3 border-secondary"
+                    className="absolute bottom-32 left-16 w-8 h-8 bg-primary border-3 border-secondary parallax-medium"
                 />
 
                 <div className="container-custom relative z-10">

@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useRef } from 'react'
 import { BarChart3, Clock, ArrowRight } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import SectionHeader from '../components/SectionHeader'
+import { useParallax } from '../hooks/useParallax'
 
 const Results = () => {
+    const containerRef = useRef(null)
+    useParallax(containerRef)
+    
     const breadcrumb = [
         { label: 'Home', link: '/' },
         { label: 'Science', link: '#' },
@@ -12,15 +17,16 @@ const Results = () => {
     ]
 
     return (
-        <>
+        <div ref={containerRef}>
             <PageHeader
                 title="Results"
                 subtitle="Experimental data and analysis from TRE-Pod validation"
                 breadcrumb={breadcrumb}
             />
 
-            <section className="py-20">
-                <div className="container-custom">
+            <section className="py-20 relative overflow-hidden">
+                <div className="absolute inset-0 grid-pattern-accent opacity-10 parallax-bg" />
+                <div className="container-custom relative z-10">
                     <div className="max-w-2xl mx-auto text-center">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +63,7 @@ const Results = () => {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     )
 }
 
