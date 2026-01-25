@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Github, Twitter, Mail, ExternalLink } from 'lucide-react'
+import { Github, Instagram, Linkedin, Mail, ExternalLink } from 'lucide-react'
 
 const Footer = () => {
     const currentYear = new Date().getFullYear()
@@ -57,12 +57,20 @@ const Footer = () => {
                                 <Github className="w-5 h-5" />
                             </a>
                             <a
-                                href="https://twitter.com"
+                                href="https://www.instagram.com/igem_vit"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-11 h-11 bg-white/10 border-2 border-white/20 flex items-center justify-center hover:bg-[#BFFF00] hover:border-[#BFFF00] hover:text-secondary transition-all duration-200"
                             >
-                                <Twitter className="w-5 h-5" />
+                                <Instagram className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/company/igem-vit-vellore-team"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-11 h-11 bg-white/10 border-2 border-white/20 flex items-center justify-center hover:bg-[#0077B5] hover:border-[#0077B5] transition-all duration-200"
+                            >
+                                <Linkedin className="w-5 h-5" />
                             </a>
                             <a
                                 href="mailto:aritrakanungo@gmail.com"
