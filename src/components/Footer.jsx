@@ -53,30 +53,34 @@ const Footer = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-11 h-11 bg-white/10 border-2 border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-200"
+                                aria-label="Visit our GitHub"
                             >
-                                <Github className="w-5 h-5" />
+                                <Github className="w-5 h-5" aria-hidden="true" />
                             </a>
                             <a
                                 href="https://www.instagram.com/igem_vit"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-11 h-11 bg-white/10 border-2 border-white/20 flex items-center justify-center hover:bg-[#BFFF00] hover:border-[#BFFF00] hover:text-secondary transition-all duration-200"
+                                className="w-11 h-11 bg-white/10 border-2 border-white/20 flex items-center justify-center hover:bg-festival-lime hover:border-festival-lime hover:text-secondary transition-all duration-200"
+                                aria-label="Follow us on Instagram"
                             >
-                                <Instagram className="w-5 h-5" />
+                                <Instagram className="w-5 h-5" aria-hidden="true" />
                             </a>
                             <a
                                 href="https://www.linkedin.com/company/igem-vit-vellore-team"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-11 h-11 bg-white/10 border-2 border-white/20 flex items-center justify-center hover:bg-[#0077B5] hover:border-[#0077B5] transition-all duration-200"
+                                aria-label="Connect with us on LinkedIn"
                             >
-                                <Linkedin className="w-5 h-5" />
+                                <Linkedin className="w-5 h-5" aria-hidden="true" />
                             </a>
                             <a
                                 href="mailto:aritrakanungo@gmail.com"
                                 className="w-11 h-11 bg-white/10 border-2 border-white/20 flex items-center justify-center hover:bg-accent-text hover:border-accent-text transition-all duration-200"
+                                aria-label="Send us an email"
                             >
-                                <Mail className="w-5 h-5" />
+                                <Mail className="w-5 h-5" aria-hidden="true" />
                             </a>
                         </div>
                     </div>
@@ -100,13 +104,13 @@ const Footer = () => {
 
                     {/* Science Links */}
                     <div>
-                        <h4 className="font-heading font-bold text-lg mb-5 text-[#BFFF00]">Science</h4>
+                        <h4 className="font-heading font-bold text-lg mb-5 text-festival-lime">Science</h4>
                         <ul className="space-y-3">
                             {footerLinks.science.map((link) => (
                                 <li key={link.path}>
                                     <Link
                                         to={link.path}
-                                        className="text-white/70 hover:text-[#BFFF00] transition-colors font-medium"
+                                        className="text-white/70 hover:text-festival-lime transition-colors font-medium"
                                     >
                                         {link.name}
                                     </Link>
@@ -155,7 +159,7 @@ const Footer = () => {
                                 Safety
                             </Link>
                             <span className="w-1 h-4 bg-white/20" />
-                            <Link to="/attributions" className="hover:text-[#BFFF00] transition-colors font-medium">
+                            <Link to="/attributions" className="hover:text-festival-lime transition-colors font-medium">
                                 Attributions
                             </Link>
                         </div>

@@ -1,8 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inconsolata:wght@200..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Grotesk:wght@300..700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --font-sans: 'DM Sans', sans-serif;
+    --font-serif: 'Lora', serif;
+    --font-mono: 'Inconsolata', monospace;
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Comic Neue', 'DM Sans', sans-serif;
+    --font-display: 'Bangers', 'Space Grotesk', sans-serif;
+    --font-comic: 'Bangers', cursive;
+    --font-comic-body: 'Comic Neue', cursive;
+
+    --color-primary: #00D4AA;
+    --color-primary-light: #33DDBB;
+    --color-primary-dark: #00B899;
+    --color-primary-text: #0a0a0a;
+
+    --color-secondary: #1a1a1a;
+    --color-secondary-light: #2d2d2d;
+    --color-secondary-dark: #0f0f0f;
+    --color-secondary-text: #ffffff;
+
+    --color-accent: #FFF5F0;
+    --color-accent-dark: #FFE8DC;
+    --color-accent-text: #9B5DE5;
+
+    --color-pastel-pink: #FFE5E5;
+    --color-pastel-purple: #E8D5FF;
+    --color-pastel-mint: #D5F5F0;
+    --color-pastel-peach: #FFECD9;
+    --color-festival-yellow: #FFE66D;
+    --color-festival-coral: #FF6B6B;
+    --color-festival-violet: #9B5DE5;
+    --color-festival-lime: #BFFF00;
+
+    --border-3: 3px;
+    --border-4: 4px;
+
+    --spacing-18: 4.5rem;
+    --spacing-88: 22rem;
+    --spacing-128: 32rem;
+
+    --radius-4xl: 2rem;
+    --radius-5xl: 2.5rem;
+
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.5rem;
+    --font-size-display: 4rem;
+
+    --animate-float: float 6s ease-in-out infinite;
+    --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-gradient: gradient 8s ease infinite;
+    --animate-bounce-subtle: bounceSubtle 2s ease-in-out infinite;
+    --animate-wiggle: wiggle 1s ease-in-out infinite;
+    --animate-glow: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes gradient {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes bounceSubtle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 212, 170, 0.5), 0 0 10px rgba(0, 212, 170, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(0, 212, 170, 0.8), 0 0 30px rgba(0, 212, 170, 0.5);
+    }
+}
 
 @layer base {
 
@@ -14,9 +126,11 @@
     }
 
     body {
-        @apply font-body bg-accent antialiased;
+        font-family: var(--font-body);
+        background-color: var(--color-accent);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         color: #1a1a1a;
-        font-family: 'Comic Neue', 'DM Sans', sans-serif;
     }
 
     h1,
@@ -31,7 +145,7 @@
 
     code,
     pre {
-        @apply font-mono;
+        font-family: var(--font-mono);
     }
 }
 
@@ -39,72 +153,184 @@
 
     /* Primary Button - Sharp rectangle with thick black border (cyan fill) */
     .btn-primary {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-primary text-secondary border-3 border-secondary hover:bg-primary-light transition-all duration-200 transform hover:-translate-y-0.5;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
+        border: 3px solid var(--color-secondary);
         font-family: 'Bangers', cursive;
         letter-spacing: 0.05em;
+        transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-primary-light);
+        transform: translateY(-0.125rem);
     }
 
     /* Secondary Button - Sharp rectangle (lime green fill) */
     .btn-secondary {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-[#BFFF00] text-secondary border-3 border-secondary hover:bg-[#d4ff33] transition-all duration-200 transform hover:-translate-y-0.5;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        background-color: #BFFF00;
+        color: var(--color-secondary);
+        border: 3px solid var(--color-secondary);
         font-family: 'Bangers', cursive;
         letter-spacing: 0.05em;
+        transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+        background-color: #d4ff33;
+        transform: translateY(-0.125rem);
     }
 
     /* Outline Button - Sharp rectangle, transparent with thick border */
     .btn-outline {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-transparent border-3 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all duration-200;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        background-color: transparent;
+        border: 3px solid var(--color-secondary);
+        color: var(--color-secondary);
         font-family: 'Bangers', cursive;
         letter-spacing: 0.05em;
+        transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+        background-color: var(--color-secondary);
+        color: white;
     }
 
     /* Accent Button - Sharp rectangle (purple themed) */
     .btn-accent {
-        @apply inline-flex items-center justify-center px-6 py-3 bg-accent-text text-white border-3 border-secondary hover:opacity-90 transition-all duration-200 transform hover:-translate-y-0.5;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--color-accent-text);
+        color: white;
+        border: 3px solid var(--color-secondary);
         font-family: 'Bangers', cursive;
         letter-spacing: 0.05em;
+        transition: all 0.2s;
+    }
+
+    .btn-accent:hover {
+        opacity: 0.9;
+        transform: translateY(-0.125rem);
     }
 
     /* Icon Button - Square with thick border */
     .btn-icon {
-        @apply inline-flex items-center justify-center w-12 h-12 bg-primary border-3 border-secondary hover:bg-primary-light transition-all duration-200;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        background-color: var(--color-primary);
+        border: 3px solid var(--color-secondary);
+        transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+        background-color: var(--color-primary-light);
     }
 
     /* Card - Sharp rectangle with thick black border */
     .card {
-        @apply bg-white border-3 border-secondary p-6 transition-all duration-200 hover:bg-pastel-mint/30;
+        background-color: white;
+        border: 3px solid var(--color-secondary);
+        padding: 1.5rem;
+        transition: all 0.2s;
+    }
+
+    .card:hover {
+        background-color: color-mix(in srgb, var(--color-pastel-mint) 30%, transparent);
     }
 
     /* Highlighted Card - Lime green accent */
     .card-highlighted {
-        @apply bg-[#BFFF00] border-3 border-secondary p-6 transition-all duration-200 hover:bg-[#d4ff33];
+        background-color: #BFFF00;
+        border: 3px solid var(--color-secondary);
+        padding: 1.5rem;
+        transition: all 0.2s;
+    }
+
+    .card-highlighted:hover {
+        background-color: #d4ff33;
     }
 
     /* Section Title - Bold display */
     .section-title {
-        @apply text-h2 text-secondary mb-4 font-heading font-bold;
+        font-size: 2.25rem;
+        line-height: 2.75rem;
+        color: var(--color-secondary);
+        margin-bottom: 1rem;
+        font-family: var(--font-heading);
+        font-weight: 700;
     }
 
     .section-subtitle {
-        @apply text-lg text-secondary/70 mb-8;
+        font-size: 1.125rem;
+        color: color-mix(in srgb, var(--color-secondary) 70%, transparent);
+        margin-bottom: 2rem;
     }
 
     .container-custom {
-        @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+        max-width: 80rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    @media (min-width: 640px) {
+        .container-custom {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container-custom {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
     }
 
     /* Accent Text - Festival colors */
     .gradient-text {
-        @apply text-primary;
+        color: var(--color-primary);
     }
 
     /* Festival Tag/Badge - Sharp rectangle */
     .tag {
-        @apply inline-flex items-center px-4 py-1.5 bg-pastel-purple text-secondary font-bold text-sm border-2 border-secondary;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.375rem 1rem;
+        background-color: var(--color-pastel-purple);
+        color: var(--color-secondary);
+        font-weight: 700;
+        font-size: 0.875rem;
+        border: 2px solid var(--color-secondary);
     }
 
     .tag-primary {
-        @apply inline-flex items-center px-4 py-1.5 bg-primary text-secondary font-bold text-sm border-2 border-secondary;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.375rem 1rem;
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
+        font-weight: 700;
+        font-size: 0.875rem;
+        border: 2px solid var(--color-secondary);
     }
 
     /* Thick Outlined Text Effect */
@@ -115,37 +341,77 @@
 
     /* Playful Link Style */
     .link-playful {
-        @apply relative text-primary font-semibold transition-colors hover:text-accent-text;
+        position: relative;
+        color: var(--color-primary);
+        font-weight: 600;
+        transition: color 0.2s;
+    }
+
+    .link-playful:hover {
+        color: var(--color-accent-text);
     }
 
     .link-playful::after {
         content: '';
-        @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 transition-transform origin-left;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.125rem;
+        background-color: var(--color-primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.2s;
     }
 
     .link-playful:hover::after {
-        @apply scale-x-100 bg-accent-text;
+        transform: scaleX(1);
+        background-color: var(--color-accent-text);
     }
 
     /* Festival Table Styles - Sharp rectangle */
     .table-festival {
-        @apply w-full overflow-hidden border-3 border-secondary;
+        width: 100%;
+        overflow: hidden;
+        border: 3px solid var(--color-secondary);
     }
 
     .table-festival thead {
-        @apply bg-accent-text text-white;
+        background-color: var(--color-accent-text);
+        color: white;
     }
 
     .table-festival th {
-        @apply px-4 py-3 text-left font-heading font-bold uppercase text-sm tracking-wider border-r-2 border-white/20 last:border-r-0;
+        padding: 0.75rem 1rem;
+        text-align: left;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+        border-right: 2px solid color-mix(in srgb, white 20%, transparent);
+    }
+
+    .table-festival th:last-child {
+        border-right: 0;
     }
 
     .table-festival tbody tr {
-        @apply border-b-2 border-secondary/20 transition-colors hover:bg-[#BFFF00]/30;
+        border-bottom: 2px solid color-mix(in srgb, var(--color-secondary) 20%, transparent);
+        transition: background-color 0.2s;
+    }
+
+    .table-festival tbody tr:hover {
+        background-color: color-mix(in srgb, #BFFF00 30%, transparent);
     }
 
     .table-festival td {
-        @apply px-4 py-3 border-r border-secondary/10 last:border-r-0;
+        padding: 0.75rem 1rem;
+        border-right: 1px solid color-mix(in srgb, var(--color-secondary) 10%, transparent);
+    }
+
+    .table-festival td:last-child {
+        border-right: 0;
     }
 }
 
@@ -215,20 +481,22 @@
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-accent;
+    background-color: var(--color-accent);
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-primary rounded-full;
+    background-color: var(--color-primary);
+    border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    @apply from-primary-light to-festival-violet;
+    background: linear-gradient(to bottom, var(--color-primary-light), var(--color-festival-violet));
 }
 
 /* Selection color */
 ::selection {
-    @apply bg-primary/30 text-secondary;
+    background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
+    color: var(--color-secondary);
 }
 
 /* Loading screen animations */

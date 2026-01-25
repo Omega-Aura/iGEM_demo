@@ -37,7 +37,7 @@ const DataTable = ({
                         <tr
                             key={rowIndex}
                             className={`border-b-2 border-secondary/10 last:border-none ${variant === 'striped' && rowIndex % 2 === 1 ? 'bg-pastel-mint/30' : 'bg-white'
-                                } hover:bg-[#BFFF00]/30 transition-colors`}
+                                } hover:bg-festival-lime/30 transition-colors`}
                         >
                             {row.map((cell, cellIndex) => (
                                 <td

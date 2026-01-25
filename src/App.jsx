@@ -1,49 +1,30 @@
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import Layout from './components/Layout'
 import LoadingScreen from './components/LoadingScreen'
-import Home from './pages/Home'
-import Description from './pages/Description'
-import Engineering from './pages/Engineering'
-import Safety from './pages/Safety'
-import Team from './pages/Team'
-import Experiments from './pages/Experiments'
-import Results from './pages/Results'
-import Modeling from './pages/Modeling'
-import Software from './pages/Software'
-import Parts from './pages/Parts'
-import Notebook from './pages/Notebook'
-import HumanPractices from './pages/HumanPractices'
-import Attributions from './pages/Attributions'
+import ErrorBoundary from './components/ErrorBoundary'
+
+// Check if initial loading has already been completed this session
+const hasLoadedBefore = () => sessionStorage.getItem('siteLoaded') === 'true'
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true)
+    // Only show loading screen on first visit this session
+    const [isLoading, setIsLoading] = useState(() => !hasLoadedBefore())
 
     const handleLoadingComplete = () => {
+        sessionStorage.setItem('siteLoaded', 'true')
         setIsLoading(false)
     }
 
     return (
-        <>
+        <ErrorBoundary>
             {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path="description" element={<Description />} />
-                    <Route path="engineering" element={<Engineering />} />
-                    <Route path="safety" element={<Safety />} />
-                    <Route path="team" element={<Team />} />
-                    <Route path="experiments" element={<Experiments />} />
-                    <Route path="results" element={<Results />} />
-                    <Route path="modeling" element={<Modeling />} />
-                    <Route path="software" element={<Software />} />
-                    <Route path="parts" element={<Parts />} />
-                    <Route path="notebook" element={<Notebook />} />
-                    <Route path="human-practices" element={<HumanPractices />} />
-                    <Route path="attributions" element={<Attributions />} />
-                </Route>
-            </Routes>
-        </>
+            <div style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
+                <Layout>
+                    <Outlet />
+                </Layout>
+            </div>
+        </ErrorBoundary>
     )
 }
 

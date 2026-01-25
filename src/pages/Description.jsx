@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { useRef } from 'react'
 import {
     Target,
     Lightbulb,
@@ -21,12 +20,8 @@ import PageHeader from '../components/PageHeader'
 import SectionHeader from '../components/SectionHeader'
 import DataTable from '../components/DataTable'
 import Timeline from '../components/Timeline'
-import { useParallax } from '../hooks/useParallax'
 
 const Description = () => {
-    const containerRef = useRef(null)
-    useParallax(containerRef)
-    
     const breadcrumb = [
         { label: 'Home', link: '/' },
         { label: 'Project', link: '#' },
@@ -128,7 +123,7 @@ const Description = () => {
     ]
 
     return (
-        <div ref={containerRef}>
+        <>
             <PageHeader
                 title="Project Description"
                 subtitle="Engineering reversible cellular dormancy through codon-specific ribosomal stalling"
@@ -136,9 +131,8 @@ const Description = () => {
             />
 
             {/* Executive Summary */}
-            <section className="py-16 relative overflow-hidden">
-                <div className="absolute inset-0 grid-pattern-primary opacity-10 parallax-bg" />
-                <div className="container-custom relative z-10">
+            <section className="py-16">
+                <div className="container-custom">
                     <div className="max-w-4xl mx-auto">
                         <SectionHeader
                             tag="Overview"
@@ -499,7 +493,7 @@ const Description = () => {
                     </motion.div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }
 

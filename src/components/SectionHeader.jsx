@@ -1,12 +1,7 @@
+import { memo } from 'react'
 import { motion } from 'framer-motion'
 
-const SectionHeader = ({
-    title,
-    subtitle,
-    description,
-    centered = true,
-    tag
-}) => {
+const SectionHeader = memo(({ title, subtitle, description, centered = true, tag }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -23,18 +18,20 @@ const SectionHeader = ({
                     className="inline-flex items-center space-x-2 bg-primary px-5 py-2 mb-5 border-3 border-secondary"
                 >
                     <span className="w-2 h-2 bg-secondary" />
-                    <span className="text-secondary text-sm font-['Bangers'] tracking-wider uppercase">{tag}</span>
+                    <span className="text-secondary text-sm font-comic tracking-wider uppercase">{tag}</span>
                 </motion.div>
             )}
-            <h2 className="text-3xl md:text-4xl font-['Bangers'] tracking-wide text-secondary mb-4">{title}</h2>
+            <h2 className="text-3xl md:text-4xl font-comic tracking-wide text-secondary mb-4">{title}</h2>
             {subtitle && (
-                <p className="text-xl text-primary font-['Bangers'] tracking-wide mb-2">{subtitle}</p>
+                <p className="text-xl text-primary font-comic tracking-wide mb-2">{subtitle}</p>
             )}
             {description && (
-                <p className="text-lg text-secondary/60 leading-relaxed font-['Comic_Neue']">{description}</p>
+                <p className="text-lg text-secondary/60 leading-relaxed font-comic-body">{description}</p>
             )}
         </motion.div>
     )
-}
+})
+
+SectionHeader.displayName = 'SectionHeader'
 
 export default SectionHeader

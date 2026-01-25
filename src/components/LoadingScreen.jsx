@@ -1,56 +1,135 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import FloatingShapes from './FloatingShapes'
+
+// Video URL to preload - must match ParallaxHeader
+const VIDEO_SRC = '/intro.mp4'
+const MIN_LOAD_TIME = 2000 // Minimum time to show loading screen (UX)
+const MAX_LOAD_TIME = 15000 // Maximum wait time before proceeding anyway
+
+const LOADING_MESSAGES = [
+    'INITIALIZING...',
+    'LOADING VIDEO...',
+    'BUFFERING CONTENT...',
+    'PREPARING VISUALS...',
+    'ALMOST THERE...',
+    'READY!'
+]
 
 const LoadingScreen = ({ onLoadingComplete }) => {
-    const [progress, setProgress] = useState(0)
+    const [displayProgress, setDisplayProgress] = useState(0)
+    const [videoProgress, setVideoProgress] = useState(0)
     const [loadingText, setLoadingText] = useState('INITIALIZING...')
     const [isComplete, setIsComplete] = useState(false)
+    const [isVideoReady, setIsVideoReady] = useState(false)
+    const startTimeRef = useRef(Date.now())
+    const isVideoReadyRef = useRef(false)
 
-    const loadingMessages = [
-        'INITIALIZING...',
-        'LOADING ASSETS...',
-        'STACKING LAYERS...',
-        'COMPILING DATA...',
-        'ALMOST THERE...',
-        'READY!'
-    ]
+    // Preload video and track actual progress
+    useEffect(() => {
+        const video = document.createElement('video')
+        video.preload = 'auto'
+        video.muted = true
+        video.playsInline = true
 
+        const handleProgress = () => {
+            if (video.buffered.length > 0 && video.duration > 0) {
+                const bufferedEnd = video.buffered.end(video.buffered.length - 1)
+                const percent = Math.min((bufferedEnd / video.duration) * 100, 100)
+                setVideoProgress(percent)
+            }
+        }
+
+        const handleCanPlayThrough = () => {
+            setVideoProgress(100)
+            setIsVideoReady(true)
+            isVideoReadyRef.current = true
+        }
+
+        const handleError = () => {
+            console.warn('Video preload failed - proceeding anyway')
+            setIsVideoReady(true)
+            isVideoReadyRef.current = true
+            setVideoProgress(100)
+        }
+
+        video.addEventListener('progress', handleProgress)
+        video.addEventListener('canplaythrough', handleCanPlayThrough)
+        video.addEventListener('loadeddata', () => setVideoProgress(prev => Math.max(prev, 30)))
+        video.addEventListener('error', handleError)
+
+        video.src = VIDEO_SRC
+        video.load()
+
+        // Fallback timeout - don't block forever on very slow connections
+        const fallbackTimeout = setTimeout(() => {
+            if (!isVideoReadyRef.current) {
+                console.warn('Video preload timeout - proceeding')
+                setIsVideoReady(true)
+                isVideoReadyRef.current = true
+                setVideoProgress(100)
+            }
+        }, MAX_LOAD_TIME)
+
+        return () => {
+            clearTimeout(fallbackTimeout)
+            video.removeEventListener('progress', handleProgress)
+            video.removeEventListener('canplaythrough', handleCanPlayThrough)
+            video.removeEventListener('error', handleError)
+            video.src = ''
+        }
+    }, [])
+
+    // Animate display progress smoothly towards video progress
     useEffect(() => {
         const interval = setInterval(() => {
-            setProgress((prev) => {
-                const newProgress = prev + Math.random() * 15
+            setDisplayProgress(prev => {
+                // Smoothly approach video progress, but cap at 95% until video is ready
+                const target = isVideoReady ? 100 : Math.min(videoProgress, 95)
+                const diff = target - prev
+                const increment = Math.max(diff * 0.1, 0.5) // Smooth easing
 
-                // Update loading text based on progress
-                if (newProgress < 20) {
-                    setLoadingText(loadingMessages[0])
-                } else if (newProgress < 40) {
-                    setLoadingText(loadingMessages[1])
-                } else if (newProgress < 60) {
-                    setLoadingText(loadingMessages[2])
-                } else if (newProgress < 80) {
-                    setLoadingText(loadingMessages[3])
-                } else if (newProgress < 95) {
-                    setLoadingText(loadingMessages[4])
-                } else {
-                    setLoadingText(loadingMessages[5])
-                }
-
-                if (newProgress >= 100) {
-                    clearInterval(interval)
-                    setTimeout(() => {
-                        setIsComplete(true)
-                        setTimeout(() => {
-                            onLoadingComplete?.()
-                        }, 500)
-                    }, 300)
-                    return 100
-                }
-                return newProgress
+                if (diff <= 0.5) return target
+                return prev + increment
             })
-        }, 150)
+        }, 50)
 
         return () => clearInterval(interval)
-    }, [onLoadingComplete])
+    }, [videoProgress, isVideoReady])
+
+    // Update loading text based on progress
+    useEffect(() => {
+        if (displayProgress < 15) {
+            setLoadingText(LOADING_MESSAGES[0])
+        } else if (displayProgress < 35) {
+            setLoadingText(LOADING_MESSAGES[1])
+        } else if (displayProgress < 55) {
+            setLoadingText(LOADING_MESSAGES[2])
+        } else if (displayProgress < 75) {
+            setLoadingText(LOADING_MESSAGES[3])
+        } else if (displayProgress < 98) {
+            setLoadingText(LOADING_MESSAGES[4])
+        } else {
+            setLoadingText(LOADING_MESSAGES[5])
+        }
+    }, [displayProgress])
+
+    // Complete loading when video is ready AND minimum time has passed
+    useEffect(() => {
+        if (isVideoReady && displayProgress >= 99) {
+            const elapsed = Date.now() - startTimeRef.current
+            const remainingMinTime = Math.max(0, MIN_LOAD_TIME - elapsed)
+
+            const completeTimeout = setTimeout(() => {
+                setIsComplete(true)
+                setTimeout(() => {
+                    onLoadingComplete?.()
+                }, 500)
+            }, remainingMinTime + 300)
+
+            return () => clearTimeout(completeTimeout)
+        }
+    }, [isVideoReady, displayProgress, onLoadingComplete])
 
     return (
         <AnimatePresence>
@@ -65,37 +144,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
                     <div className="absolute inset-0 grid-pattern-primary opacity-50" />
 
                     {/* Floating geometric shapes */}
-                    <motion.div
-                        animate={{
-                            y: [0, -20, 0],
-                            rotate: [0, 10, 0]
-                        }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-20 left-[15%] w-10 h-10 bg-primary border-3 border-secondary"
-                    />
-                    <motion.div
-                        animate={{
-                            y: [0, 15, 0],
-                            rotate: [0, -8, 0]
-                        }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-32 right-[20%] w-8 h-8 bg-[#BFFF00] border-3 border-secondary"
-                    />
-                    <motion.div
-                        animate={{
-                            y: [0, -25, 0]
-                        }}
-                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-32 left-[25%] w-12 h-12 bg-accent-text border-3 border-secondary"
-                    />
-                    <motion.div
-                        animate={{
-                            y: [0, 20, 0],
-                            rotate: [0, 15, 0]
-                        }}
-                        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute bottom-40 right-[30%] w-6 h-6 bg-festival-coral border-3 border-secondary"
-                    />
+                    <FloatingShapes variant="loading" />
 
                     {/* Main content */}
                     <div className="relative z-10 text-center px-4">
@@ -148,7 +197,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
                                 {/* Progress fill */}
                                 <motion.div
                                     className="absolute inset-y-0 left-0 bg-primary"
-                                    style={{ width: `${progress}%` }}
+                                    style={{ width: `${displayProgress}%` }}
                                     transition={{ duration: 0.1 }}
                                 />
                                 {/* Animated stripes overlay */}
@@ -190,7 +239,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
                             className="mt-6"
                         >
                             <span className="font-heading font-bold text-secondary text-2xl">
-                                {Math.round(progress)}%
+                                {Math.round(displayProgress)}%
                             </span>
                         </motion.div>
                     </div>

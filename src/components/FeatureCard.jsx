@@ -1,15 +1,16 @@
+import { memo } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
-const FeatureCard = ({
+const FeatureCard = memo(({
   icon: Icon,
   title,
   description,
   link,
   linkText = 'Learn more',
   delay = 0,
-  variant = 'default' // 'default', 'highlighted', 'compact'
+  variant = 'default'
 }) => {
   const content = (
     <motion.div
@@ -23,7 +24,7 @@ const FeatureCard = ({
         transition: { duration: 0.15, ease: "easeOut" }
       }}
       className={`group h-full p-6 transition-all duration-200 border-[3px] border-black ${variant === 'highlighted'
-        ? 'bg-[#BFFF00] hover:bg-[#d4ff33]'
+        ? 'bg-festival-lime hover:bg-[#d4ff33]'
         : 'bg-white hover:bg-pastel-mint/30'
         }`}
       style={{
@@ -34,13 +35,13 @@ const FeatureCard = ({
       {Icon && (
         <div className={`w-14 h-14 mb-5 flex items-center justify-center border-[3px] border-black ${variant === 'highlighted'
           ? 'bg-primary text-secondary'
-          : 'bg-primary text-secondary group-hover:bg-[#BFFF00]'
+          : 'bg-primary text-secondary group-hover:bg-festival-lime'
           } transition-all duration-200`}>
           <Icon className="w-7 h-7" />
         </div>
       )}
 
-      <h3 className="text-xl font-['Bangers'] tracking-wide text-secondary mb-3">
+      <h3 className="text-xl font-comic tracking-wide text-secondary mb-3">
         {title}
       </h3>
 
@@ -50,7 +51,7 @@ const FeatureCard = ({
 
       {link && (
         <div className="mt-auto">
-          <span className="inline-flex items-center font-['Bangers'] tracking-wide transition-colors text-secondary group-hover:text-primary">
+          <span className="inline-flex items-center font-comic tracking-wide transition-colors text-secondary group-hover:text-primary">
             {linkText}
             <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" />
           </span>
@@ -68,6 +69,8 @@ const FeatureCard = ({
   }
 
   return content
-}
+})
+
+FeatureCard.displayName = 'FeatureCard'
 
 export default FeatureCard

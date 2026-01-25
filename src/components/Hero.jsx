@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import FloatingShapes from './FloatingShapes'
 
 const Hero = ({
     title,
     subtitle,
     description,
     primaryAction,
-    secondaryAction,
-    backgroundVariant = 'gradient'
+    secondaryAction
 }) => {
     return (
         <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-accent">
@@ -24,44 +24,7 @@ const Hero = ({
                 />
 
                 {/* Floating geometric shapes - Sharp rectangles */}
-                <motion.div
-                    animate={{
-                        y: [0, -20, 0],
-                        rotate: [0, 5, 0]
-                    }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-20 right-20 w-12 h-12 bg-primary border-3 border-secondary"
-                />
-                <motion.div
-                    animate={{
-                        y: [0, 15, 0],
-                        rotate: [0, -10, 0]
-                    }}
-                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-40 left-20 w-8 h-8 bg-[#BFFF00] border-3 border-secondary"
-                />
-                <motion.div
-                    animate={{
-                        y: [0, -25, 0]
-                    }}
-                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-32 left-1/4 w-16 h-16 bg-accent-text border-3 border-secondary"
-                />
-                <motion.div
-                    animate={{
-                        y: [0, 20, 0],
-                        rotate: [0, 15, 0]
-                    }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-40 right-1/4 w-6 h-6 bg-festival-coral border-3 border-secondary"
-                />
-                <motion.div
-                    animate={{
-                        y: [0, -15, 0]
-                    }}
-                    transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-1/3 right-1/3 w-10 h-10 bg-pastel-purple border-3 border-secondary"
-                />
+                <FloatingShapes variant="hero" />
             </div>
 
             {/* Content */}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import {
     Beaker,
@@ -11,23 +11,44 @@ import {
     Leaf,
     FlaskConical,
     Code2,
-    Users,
     ArrowRight,
     CheckCircle2,
     Sparkles
 } from 'lucide-react'
-import Hero from '../components/Hero'
 import ParallaxHeader from '../components/ParallaxHeader'
 import SectionHeader from '../components/SectionHeader'
 import StatsCard from '../components/StatsCard'
 import FeatureCard from '../components/FeatureCard'
 import DataTable from '../components/DataTable'
 import BangerBox from '../components/BangerBox'
-import { useParallax } from '../hooks/useParallax'
+import FloatingShapes from '../components/FloatingShapes'
+
+// Custom shape configurations for Home page sections
+const solutionShapes = [
+    { position: 'top-32 left-20', size: 'w-8 h-8', color: 'bg-primary', duration: 6, yRange: [-15, 0] },
+    { position: 'bottom-40 right-24', size: 'w-10 h-10', color: 'bg-festival-lime', duration: 5, yRange: [10, 0] },
+]
+
+const impactShapes = [
+    { position: 'top-20 right-20', size: 'w-12 h-12', color: 'bg-accent-text', duration: 7, yRange: [-20, 0] },
+    { position: 'bottom-32 left-16', size: 'w-8 h-8', color: 'bg-primary', duration: 6, yRange: [15, 0] },
+]
+
+const ctaShapes = [
+    { position: 'top-10 left-20', size: 'w-6 h-6', color: 'bg-primary', duration: 5, yRange: [-15, 0], borderClass: 'border-2 border-white/30' },
+    { position: 'top-20 right-32', size: 'w-8 h-8', color: 'bg-festival-lime', duration: 6, yRange: [10, 0], borderClass: 'border-2 border-white/30' },
+    { position: 'bottom-16 left-1/3', size: 'w-10 h-10', color: 'bg-accent-text', duration: 7, yRange: [-20, 0], borderClass: 'border-2 border-white/30' },
+]
 
 const Home = () => {
     const containerRef = useRef(null)
-    useParallax(containerRef)
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start start", "end end"]
+    })
+
+    const y1 = useTransform(scrollYProgress, [0, 1], [0, -100])
+    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
     const stats = [
         {
             icon: TrendingDown,
@@ -107,40 +128,44 @@ const Home = () => {
             <ParallaxHeader>
                 <motion.div
                     className="container-custom text-center px-6"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 0.2 }}
+                    style={{ y: y1, opacity }}
                 >
-                    <h1 className="text-5xl md:text-7xl font-['Bangers'] tracking-wide text-white mb-6">
-                        Translational Rhythm Engineering<br />
-                        for <span className="text-primary">Programmed Dormancy</span>
-                    </h1>
-                    <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-['Comic_Neue']">
-                        Engineering reversible cellular dormancy through codon-specific ribosomal stalling.
-                        A synthetic biology approach to preserve living cells without cryogenic infrastructure.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link
-                            to="/description"
-                            className="btn-primary inline-flex items-center gap-2"
-                        >
-                            Explore the Science
-                            <ArrowRight className="w-5 h-5" />
-                        </Link>
-                        <Link
-                            to="/results"
-                            className="btn-accent inline-flex items-center gap-2"
-                        >
-                            View Results
-                            <ArrowRight className="w-5 h-5" />
-                        </Link>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.2 }}
+                    >
+                        <h1 className="text-5xl md:text-7xl font-['Bangers'] tracking-wide text-white mb-6">
+                            Translational Rhythm Engineering<br />
+                            for <span className="text-primary">Programmed Dormancy</span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-['Comic_Neue']">
+                            Engineering reversible cellular dormancy through codon-specific ribosomal stalling.
+                            A synthetic biology approach to preserve living cells without cryogenic infrastructure.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link
+                                to="/description"
+                                className="btn-primary inline-flex items-center gap-2"
+                            >
+                                Explore the Science
+                                <ArrowRight className="w-5 h-5" />
+                            </Link>
+                            <Link
+                                to="/results"
+                                className="btn-accent inline-flex items-center gap-2"
+                            >
+                                View Results
+                                <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </div>
+                    </motion.div>
                 </motion.div>
             </ParallaxHeader>
 
             {/* Problem Statement Section - Primary (cyan) grid */}
             <section className="py-20 bg-white relative overflow-hidden border-b-3 border-secondary">
-                <div className="absolute inset-0 grid-pattern-primary parallax-bg" />
+                <div className="absolute inset-0 grid-pattern-primary" />
 
                 <div className="container-custom relative z-10">
                     <SectionHeader
@@ -214,19 +239,10 @@ const Home = () => {
 
             {/* Solution Overview Section - Lime grid */}
             <section className="py-20 bg-accent relative overflow-hidden border-b-3 border-secondary">
-                <div className="absolute inset-0 grid-pattern-lime parallax-bg" />
+                <div className="absolute inset-0 grid-pattern-lime" />
 
                 {/* Floating geometric shapes */}
-                <motion.div
-                    animate={{ y: [0, -15, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-32 left-20 w-8 h-8 bg-primary border-3 border-secondary parallax-slow"
-                />
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-40 right-24 w-10 h-10 bg-[#BFFF00] border-3 border-secondary parallax-slow"
-                />
+                <FloatingShapes shapes={solutionShapes} />
 
                 <div className="container-custom relative z-10">
                     <SectionHeader
@@ -319,7 +335,7 @@ const Home = () => {
 
             {/* Features Grid - Accent (purple) grid */}
             <section className="py-20 bg-white relative overflow-hidden border-b-3 border-secondary">
-                <div className="absolute inset-0 grid-pattern-accent parallax-bg" />
+                <div className="absolute inset-0 grid-pattern-accent" />
 
                 <div className="container-custom relative z-10">
                     <SectionHeader
@@ -338,19 +354,10 @@ const Home = () => {
 
             {/* Impact Section - Primary grid on cream background */}
             <section className="py-20 bg-accent relative overflow-hidden border-b-3 border-secondary">
-                <div className="absolute inset-0 grid-pattern-primary parallax-bg" />
+                <div className="absolute inset-0 grid-pattern-primary" />
 
                 {/* Floating shapes */}
-                <motion.div
-                    animate={{ y: [0, -20, 0] }}
-                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-20 right-20 w-12 h-12 bg-accent-text border-3 border-secondary parallax-medium"
-                />
-                <motion.div
-                    animate={{ y: [0, 15, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-32 left-16 w-8 h-8 bg-primary border-3 border-secondary parallax-medium"
-                />
+                <FloatingShapes shapes={impactShapes} />
 
                 <div className="container-custom relative z-10">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -365,7 +372,7 @@ const Home = () => {
                             <div className="space-y-6">
                                 {[
                                     { icon: Leaf, title: 'SDG 3: Good Health', desc: 'Accessible cell therapy preservation', color: 'bg-primary' },
-                                    { icon: Beaker, title: 'SDG 6: Clean Water', desc: 'Deployable bioremediation strains', color: 'bg-[#BFFF00]' },
+                                    { icon: Beaker, title: 'SDG 6: Clean Water', desc: 'Deployable bioremediation strains', color: 'bg-festival-lime' },
                                     { icon: Cpu, title: 'SDG 9: Industry & Innovation', desc: 'Platform technology for global biotech', color: 'bg-accent-text' },
                                 ].map((item, index) => (
                                     <BangerBox
@@ -402,7 +409,7 @@ const Home = () => {
                                         <div className="text-2xl font-['Bangers'] tracking-wide">Scalable</div>
                                         <p className="text-secondary/70 text-sm font-medium">Platform technology applicable to microbes, cell lines, and biopharmaceuticals</p>
                                     </div>
-                                    <div className="bg-[#BFFF00] border-[3px] border-black p-4 transform rotate-1">
+                                    <div className="bg-festival-lime border-[3px] border-black p-4 transform rotate-1">
                                         <div className="text-2xl font-['Bangers'] tracking-wide">Sustainable</div>
                                         <p className="text-secondary/70 text-sm font-medium">Eliminates cold-chain dependency and energy-intensive preservation</p>
                                     </div>
@@ -417,21 +424,7 @@ const Home = () => {
             <section className="py-20 bg-secondary relative overflow-hidden">
 
                 {/* Floating shapes */}
-                <motion.div
-                    animate={{ y: [0, -15, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-10 left-20 w-6 h-6 bg-primary border-2 border-white/30"
-                />
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute top-20 right-32 w-8 h-8 bg-[#BFFF00] border-2 border-white/30"
-                />
-                <motion.div
-                    animate={{ y: [0, -20, 0] }}
-                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute bottom-16 left-1/3 w-10 h-10 bg-accent-text border-2 border-white/30"
-                />
+                <FloatingShapes shapes={ctaShapes} />
 
                 <div className="container-custom text-center relative z-10">
                     <motion.div

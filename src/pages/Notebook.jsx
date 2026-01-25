@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { BookOpen, Calendar, Clock, ArrowRight } from 'lucide-react'
+import { BookOpen, Calendar, ArrowRight } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
-import SectionHeader from '../components/SectionHeader'
 
 const Notebook = () => {
     const breadcrumb = [

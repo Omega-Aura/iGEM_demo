@@ -1,11 +1,7 @@
+import { memo } from 'react'
 import { motion } from 'framer-motion'
 
-const BangerBox = ({
-    children,
-    className = "",
-    badgeText = "",
-    delay = 0
-}) => {
+const BangerBox = memo(({ children, className = "", badgeText = "", delay = 0 }) => {
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -27,7 +23,6 @@ const BangerBox = ({
             }}
             className={`relative border-[3px] border-black p-8 ${className}`}
             style={{
-                // "Wobbly" border radius effect
                 borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px",
                 boxShadow: "5px 5px 0px 0px rgba(0,0,0,1)"
             }}
@@ -40,7 +35,7 @@ const BangerBox = ({
                         boxShadow: "3px 3px 0px 0px rgba(0,0,0,1)"
                     }}
                 >
-                    <span className="font-['Bangers'] text-xl tracking-wider uppercase">
+                    <span className="font-comic text-xl tracking-wider uppercase">
                         {badgeText}
                     </span>
                 </div>
@@ -51,6 +46,8 @@ const BangerBox = ({
             </div>
         </motion.div>
     )
-}
+})
+
+BangerBox.displayName = 'BangerBox'
 
 export default BangerBox

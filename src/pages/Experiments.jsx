@@ -5,8 +5,7 @@ import {
     Microscope,
     TestTube2,
     BarChart3,
-    ArrowRight,
-    CheckCircle2
+    ArrowRight
 } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import SectionHeader from '../components/SectionHeader'
