@@ -489,10 +489,6 @@
     border-radius: 9999px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to bottom, var(--color-primary-light), var(--color-festival-violet));
-}
-
 /* Selection color */
 ::selection {
     background-color: color-mix(in srgb, var(--color-primary) 30%, transparent);

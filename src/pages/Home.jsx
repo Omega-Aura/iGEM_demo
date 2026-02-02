@@ -316,7 +316,7 @@ const Home = () => {
                                         transition={{ delay: index * 0.1 }}
                                         className="flex items-start"
                                     >
-                                        <div className="w-6 h-6 bg-primary border-2 border-secondary flex items-center justify-center mr-3 flex-shrink-0 mt-0.5">
+                                        <div className="w-6 h-6 bg-primary border-2 border-secondary flex items-center justify-center mr-3 shrink-0 mt-0.5">
                                             <CheckCircle2 className="w-4 h-4 text-secondary" />
                                         </div>
                                         <span className="text-secondary/70 font-['Comic_Neue'] font-bold">{item}</span>
@@ -380,7 +380,7 @@ const Home = () => {
                                         delay={index * 0.1}
                                         className="flex items-start space-x-4 bg-white hover:bg-pastel-mint/30 transition-all duration-200"
                                     >
-                                        <div className={`w-12 h-12 ${item.color} border-[3px] border-black flex items-center justify-center flex-shrink-0`}>
+                                        <div className={`w-12 h-12 ${item.color} border-[3px] border-black flex items-center justify-center shrink-0`}>
                                             <item.icon className="w-6 h-6 text-secondary" />
                                         </div>
                                         <div>

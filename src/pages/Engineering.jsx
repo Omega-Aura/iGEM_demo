@@ -170,7 +170,7 @@ const Engineering = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card bg-gradient-to-br from-primary to-primary-dark text-white p-8 mb-8"
+                            className="card bg-linear-to-br from-primary to-primary-dark text-white p-8 mb-8"
                         >
                             <div className="flex items-center mb-4">
                                 <Repeat className="w-8 h-8 mr-3" />
@@ -207,7 +207,7 @@ const Engineering = () => {
                             >
                                 <div className="flex flex-col lg:flex-row lg:items-start gap-6">
                                     {/* Phase Header */}
-                                    <div className="lg:w-48 flex-shrink-0">
+                                    <div className="lg:w-48 shrink-0">
                                         <div className={`w-16 h-16 rounded-2xl bg-${cycle.color}/10 flex items-center justify-center mb-4`}>
                                             <cycle.icon className={`w-8 h-8 text-${cycle.color}`} />
                                         </div>
@@ -223,7 +223,7 @@ const Engineering = () => {
                                     </div>
 
                                     {/* Activities & Outcomes */}
-                                    <div className="flex-grow grid md:grid-cols-2 gap-6">
+                                    <div className="grow grid md:grid-cols-2 gap-6">
                                         <div>
                                             <h4 className="font-semibold text-secondary mb-3 flex items-center">
                                                 <Target className="w-4 h-4 mr-2 text-primary" />
@@ -232,7 +232,7 @@ const Engineering = () => {
                                             <ul className="space-y-2">
                                                 {cycle.activities.map((activity, i) => (
                                                     <li key={i} className="flex items-start text-sm text-secondary-light">
-                                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 mt-1.5 flex-shrink-0" />
+                                                        <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 mt-1.5 shrink-0" />
                                                         {activity}
                                                     </li>
                                                 ))}
@@ -246,7 +246,7 @@ const Engineering = () => {
                                             <ul className="space-y-2">
                                                 {cycle.outcomes.map((outcome, i) => (
                                                     <li key={i} className="flex items-start text-sm text-secondary-light">
-                                                        <CheckCircle2 className="w-4 h-4 mr-2 text-accent-text flex-shrink-0" />
+                                                        <CheckCircle2 className="w-4 h-4 mr-2 text-accent-text shrink-0" />
                                                         {outcome}
                                                     </li>
                                                 ))}

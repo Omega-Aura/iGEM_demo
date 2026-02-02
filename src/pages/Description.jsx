@@ -163,43 +163,43 @@ const Description = () => {
 
                             {/* Key Outcomes */}
                             <div className="grid md:grid-cols-2 gap-6 mb-8">
-                                <div className="card bg-gradient-to-br from-primary/5 to-transparent">
+                                <div className="card bg-linear-to-br from-primary/5 to-transparent">
                                     <h4 className="font-heading font-semibold text-primary mb-3 flex items-center">
                                         <Target className="w-5 h-5 mr-2" />
                                         MVP Outcomes
                                     </h4>
                                     <ul className="space-y-2 text-secondary-light">
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 shrink-0" />
                                             60-80% ATP reduction
                                         </li>
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 shrink-0" />
                                             Growth arrest achieved
                                         </li>
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 shrink-0" />
                                             {'>'}50% CFU retention after 14 days RT storage
                                         </li>
                                     </ul>
                                 </div>
 
-                                <div className="card bg-gradient-to-br from-accent-text/5 to-transparent">
+                                <div className="card bg-linear-to-br from-accent-text/5 to-transparent">
                                     <h4 className="font-heading font-semibold text-accent-text mb-3 flex items-center">
                                         <Lightbulb className="w-5 h-5 mr-2" />
                                         Full Project Outcomes
                                     </h4>
                                     <ul className="space-y-2 text-secondary-light">
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 shrink-0" />
                                             Inducible reversible exit (30-120 min)
                                         </li>
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 shrink-0" />
                                             Predictive ML model (R² {'>'} 0.85)
                                         </li>
                                         <li className="flex items-start">
-                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 flex-shrink-0" />
+                                            <CheckCircle2 className="w-4 h-4 text-accent-text mr-2 mt-1 shrink-0" />
                                             {'>'}70% CFU retention after 28 days
                                         </li>
                                     </ul>
@@ -301,7 +301,7 @@ const Description = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="card bg-gradient-to-br from-primary to-primary-dark text-white p-8"
+                            className="card bg-linear-to-br from-primary to-primary-dark text-white p-8"
                         >
                             <h3 className="text-xl font-heading font-bold mb-4 flex items-center">
                                 <Dna className="w-6 h-6 mr-2" />
@@ -435,7 +435,7 @@ const Description = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 }}
-                                className="card bg-gradient-to-br from-primary-light/10 to-transparent border border-primary-light/20"
+                                className="card bg-linear-to-br from-primary-light/10 to-transparent border border-primary-light/20"
                             >
                                 <h4 className="font-heading font-semibold text-primary-light mb-4">
                                     Expected Dormancy Profile
