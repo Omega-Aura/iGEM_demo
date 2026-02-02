@@ -22,7 +22,7 @@ const Attributions = () => {
             icon: Users,
             items: [
                 {
-                    name: 'Aritra Das Kanungo',
+                    name: 'TBD',
                     role: 'Project Lead',
                     contribution: 'Overall project conception, design, and coordination'
                 }

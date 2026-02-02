@@ -20,25 +20,68 @@ const Team = () => {
 
     const teamMembers = [
         {
+            name: 'Srinidhi Kannan',
+            role: 'Team Coordinator',
+            image: null,
+            bio: 'Coordinates team activities and ensures smooth project execution.',
+            expertise: ['Team Coordination', 'Project Management'],
+            social: {
+                email: 'srinidhi.kannan2023@vitstudent.ac.in',
+                linkedin: 'https://www.linkedin.com/in/srinidhi-kannan-424072236/',
+                github: null
+            }
+        },
+        {
+            name: 'Kunjal Kamal Ningoo',
+            role: 'Team Coordinator',
+            image: null,
+            bio: 'Coordinates team activities and ensures smooth project execution.',
+            expertise: ['Team Coordination', 'Project Management'],
+            social: {
+                email: 'kunjalkamal.ningoo2023@vitstudent.ac.in',
+                linkedin: null,
+                github: null
+            }
+        },
+        {
+            name: 'Riya Vijay Shadija',
+            role: 'Team Coordinator',
+            image: null,
+            bio: 'Coordinates team activities and ensures smooth project execution.',
+            expertise: ['Team Coordination', 'Project Management'],
+            social: {
+                email: 'riyavijay.shadija2023@vitstudent.ac.in',
+                linkedin: 'https://www.linkedin.com/in/riya-shadija-bb7822286',
+                github: null
+            }
+        },
+        {
             name: 'Aritra Das Kanungo',
             role: 'TBD',
             image: null, // Placeholder
             bio: 'Leading the TRE-Pod project with expertise in synthetic biology and translational control mechanisms. Responsible for overall project direction, experimental design, and integration of computational and wet lab approaches.',
             expertise: ['Synthetic Biology', 'Translational Control', 'Project Management'],
             social: {
-                email: 'aritra@example.com',
-                linkedin: '#',
-                github: '#'
+                email: 'aritrakanungo@gmail.com',
+                linkedin: 'https://www.linkedin.com/in/aritra-das-kanungo/',
+                github: 'https://github.com/Omega-Aura/'
             }
         }
     ]
 
     const advisors = [
         {
-            name: 'Faculty Advisor',
+            name: 'Dr. Suneetha V',
             role: 'Principal Investigator',
             affiliation: 'Department of Biological Sciences',
             contribution: 'Provides scientific guidance, laboratory access, and mentorship for the project. Expertise in microbial physiology and metabolic engineering.',
+            image: null
+        },
+        {
+            name: 'Dr. Shanthi V',
+            role: 'Co-Principal Investigator',
+            affiliation: 'Department of Biological Sciences',
+            contribution: 'Provides scientific guidance and mentorship for the project.',
             image: null
         },
         {
