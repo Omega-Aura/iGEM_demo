@@ -75,7 +75,7 @@ const Hero = ({
                                         {primaryAction.label}
                                     </Link>
                                 ) : (
-                                    <a href={primaryAction.href} className="btn-primary">
+                                    <a href={primaryAction.href} target="_blank" rel="noopener noreferrer" className="btn-primary">
                                         {primaryAction.label}
                                     </a>
                                 )
@@ -86,7 +86,7 @@ const Hero = ({
                                         {secondaryAction.label}
                                     </Link>
                                 ) : (
-                                    <a href={secondaryAction.href} className="btn-secondary">
+                                    <a href={secondaryAction.href} target="_blank" rel="noopener noreferrer" className="btn-secondary">
                                         {secondaryAction.label}
                                     </a>
                                 )

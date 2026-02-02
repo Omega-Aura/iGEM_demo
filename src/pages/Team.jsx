@@ -195,12 +195,12 @@ const Team = () => {
                                                 </a>
                                             )}
                                             {member.social.linkedin && (
-                                                <a href={member.social.linkedin} className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                                                <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                                                     <Linkedin className="w-5 h-5" />
                                                 </a>
                                             )}
                                             {member.social.github && (
-                                                <a href={member.social.github} className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+                                                <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                                                     <Github className="w-5 h-5" />
                                                 </a>
                                             )}
