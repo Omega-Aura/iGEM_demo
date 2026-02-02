@@ -374,7 +374,7 @@ const Engineering = () => {
                                 Experiments
                                 <ArrowRight className="w-4 h-4 ml-2" />
                             </Link>
-                            <Link to="/results" className="btn-outline border-white text-white hover:bg-white hover:text-deep-blue">
+                            <Link to="/results" className="btn-outline border-white text-white hover:bg-white hover:text-primary">
                                 View Results
                             </Link>
                         </div>
